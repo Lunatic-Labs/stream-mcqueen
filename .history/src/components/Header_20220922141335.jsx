@@ -6,7 +6,7 @@ import Logo from '../assets/Logo.png'
 export default function Header(props) {
   const navigate = useNavigate()
   return (
-    <Container className='flex a-center j-between'>
+    <Container>
       <div className="logo">
         <img src={Logo} alt="Logo" />
       </div>
@@ -26,11 +26,5 @@ export default function Header(props) {
     button{
       padding: 0.5 rem 1rem;
       background-color: #F3AA02;
-      border: none;
-      cursor: pointer;
-      color: white;
-      border-radius: 0.2 rem;
-      font-weight: bolder;
-      font-size: 1.05 rem;
     }
  `;
