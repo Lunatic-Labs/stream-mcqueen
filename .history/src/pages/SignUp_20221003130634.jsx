@@ -4,8 +4,6 @@ import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
 import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
-import { firebaseAuth } from '../utils/firebase-config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -14,12 +12,7 @@ export default function SignUp() {
         password: "",
     });
     const handleSignIn = async () => {
-        try {
-            const {email, password} = formValues;
-            await createUserWithEmailAndPassword(firebaseAuth, email, password)
-        } catch(err) {
-            console.log(err)
-        }
+        console.log(formValues);
     }
   return <Container showPassword={showPassword}>
     <BackgroundImage/>
@@ -27,7 +20,7 @@ export default function SignUp() {
     <Header/>
     <div className="body flex column a-center j-center">
         <div className="test flex column">
-            <h1>Access Your Favorite Lipscomb Content</h1>
+            <h1>Access Your Favorite Lipscomb University Content</h1>
             <h4>Watch Anywhere. Lipscomb+ </h4>
             <h6>Ready to watch? Enter your email to create your account!</h6>
         </div>
