@@ -77,7 +77,7 @@ const  Container = styled.div`
         top: 0;
         left: 0;
         height: 100vh;
-        width: 100vw;
+        width: 100w;
         display: grid;
         grid-template-rows: 15vh 85vh;
         .form-container {
@@ -86,7 +86,7 @@ const  Container = styled.div`
           .form {
             padding: 2rem;
             background-color: #000000b0;
-            width: 20vw;
+            width: 25vw;
             gap: 2rem;
             color: white;
             .container {

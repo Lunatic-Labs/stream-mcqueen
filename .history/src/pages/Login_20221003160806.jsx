@@ -8,12 +8,13 @@ import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const [showPassword, setShowPassword] = useState(false);
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
     });
     const navigate = useNavigate()
-    const handleLogIn = async () => {
+    const handleSignIn = async () => {
         try {
             const {email, password} = formValues;
             await signInWithEmailAndPassword(firebaseAuth, email, password)
@@ -25,13 +26,12 @@ export default function Login() {
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
-  return (
-   <Container>
+  return <Container showPassword={showPassword}>
     <BackgroundImage/>
     <div className="content">
     <Header/>
-    <div className="form-container flex column a-center j-center">
-        <div className="form flex column a-center j-center">
+    <div className="body flex column a-center j-center">
+        <div className="test flex column a-center j-center">
            <div className="title">
               <h3>Login</h3>
            </div>
@@ -48,26 +48,30 @@ export default function Login() {
                 })
              }
             />
-            <input 
-                type="password" 
-                placeholder='Password' 
-                name='password' 
-                value={formValues.password} 
-                onChange={(e)=>
-                setFormValues({
-                    ...formValues,
-                    [e.target.name]: e.target.value,
-                })
-              }
-             />
-            <button onClick={handleLogIn}>Log In</button>
+            
+                    <input 
+                        type="password" 
+                        placeholder='Password' 
+                        name='password' 
+                        value={formValues.password} 
+                        onChange={(e)=>
+                        setFormValues({
+                            ...formValues,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                    />)
+            
+            {!showPassword && 
+                    (<button onClick={()=>setShowPassword(true)}>Sign Up</button>)
+            }
            </div>
         </div>
+        <button onClick={handleSignIn}>Sign Up</button>
     </div>
     </div>
 
   </Container>
-  );
 }
 
 const  Container = styled.div`
@@ -80,33 +84,50 @@ const  Container = styled.div`
         width: 100vw;
         display: grid;
         grid-template-rows: 15vh 85vh;
-        .form-container {
-          gap: 2rem;
-          height: 40vh;
-          .form {
-            padding: 2rem;
-            background-color: #000000b0;
-            width: 20vw;
-            gap: 2rem;
-            color: white;
-            .container {
-              gap: 2rem:
-              .input {
-                padding: 0.5 rem 1rem;
-                width: 15rem;
-              }
-              button {
+        .body {
+            gap: 1rem;
+            .text {
+                gap: 1rem;
+                text-align: center;
+                font-size: 2rem;
+                h1 {
+                    padding: 0 25rem;
+                }
+            }
+            .form {
+                display: grid;
+                grid-template-columns: ${({showPassword})=>showPassword ?"1fr 1fr": "2fr 1fr"};
+                width: 40%;
+                input {
+                    color: black;
+                    border: none;
+                    padding: 1.5rem;
+                    font-size: 1.2rem;
+                    border: 1px solid black;
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+            button {
                 padding: 0.5 rem 1rem;
                 background-color: #F3AA02;
                 border: none;
                 cursor: pointer;
                 color: white;
-                border-radius: 0.2 rem;
                 font-weight: bolder;
                 font-size: 1.05 rem;
-              }
             }
-          }
+        }
+        button {
+            padding: 0.5 rem 1rem;
+            background-color: #F3AA02;
+            border: none;
+            cursor: pointer;
+            color: white;
+            border-radius: 0.2 rem;
+            font-weight: bolder;
+            font-size: 1.05 rem;
         }
     }
 `;

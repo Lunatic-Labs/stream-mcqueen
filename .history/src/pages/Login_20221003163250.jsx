@@ -92,7 +92,7 @@ const  Container = styled.div`
             .container {
               gap: 2rem:
               .input {
-                padding: 0.5 rem 1rem;
+                padding: 9.5 rem 1rem;
                 width: 15rem;
               }
               button {

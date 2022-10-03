@@ -90,7 +90,7 @@ const  Container = styled.div`
             gap: 2rem;
             color: white;
             .container {
-              gap: 2rem:
+              gap: 9rem:
               .input {
                 padding: 0.5 rem 1rem;
                 width: 15rem;
