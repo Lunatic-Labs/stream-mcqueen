@@ -30,8 +30,8 @@ export default function Login() {
     <BackgroundImage/>
     <div className="content">
     <Header/>
-    <div className="form-container flex column a-center j-center">
-        <div className="form flex column a-center j-center">
+    <div className="body flex column a-center j-center">
+        <div className="test flex column a-center j-center">
            <div className="title">
               <h3>Login</h3>
            </div>
@@ -82,11 +82,11 @@ const  Container = styled.div`
         grid-template-rows: 15vh 85vh;
         .form-container {
           gap: 2rem;
-          height: 40vh;
+          height: 85vh;
           .form {
             padding: 2rem;
             background-color: #000000b0;
-            width: 20vw;
+            width: 25vw;
             gap: 2rem;
             color: white;
             .container {
@@ -96,14 +96,7 @@ const  Container = styled.div`
                 width: 15rem;
               }
               button {
-                padding: 0.5 rem 1rem;
-                background-color: #F3AA02;
-                border: none;
-                cursor: pointer;
-                color: white;
-                border-radius: 0.2 rem;
-                font-weight: bolder;
-                font-size: 1.05 rem;
+
               }
             }
           }
