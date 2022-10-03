@@ -4,8 +4,6 @@ import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
 import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
-import { firebaseAuth } from '../utils/firebase-config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -13,14 +11,6 @@ export default function SignUp() {
         email: "",
         password: "",
     });
-    const handleSignIn = async () => {
-        try {
-            const {email, password} = formValues;
-            await createUserWithEmailAndPassword(firebaseAuth, email, password)
-        } catch(err) {
-            console.log(err)
-        }
-    }
   return <Container showPassword={showPassword}>
     <BackgroundImage/>
     <div className="content">
@@ -32,41 +22,23 @@ export default function SignUp() {
             <h6>Ready to watch? Enter your email to create your account!</h6>
         </div>
         <div className="form">
-            <input 
-                type="email" 
-                placeholder='Email Address' 
-                name='email' 
-                value={formValues.email} 
-                onChange={(e)=>
-                setFormValues({
-                    ...formValues,
-                    [e.target.name]: e.target.value,
-                })
-             }
-            />
-            {showPassword && (
-                    <input 
-                        type="password" 
-                        placeholder='Password' 
-                        name='password' 
-                        value={formValues.password} 
-                        onChange={(e)=>
-                        setFormValues({
-                            ...formValues,
-                            [e.target.name]: e.target.value,
-                        })
-                    }
-                    />)
+            <input type="email" placeholder='Email Address' name='email' value={formValues.email}/>
+            {
+                showPassword && 
+                    (<input type="password" placeholder='Password' name='password' value={formValues.password}/>)
             }
-            {!showPassword && 
+            {
+                !showPassword && 
                     (<button onClick={()=>setShowPassword(true)}>Sign Up</button>)
             }
         </div>
-        <button onClick={handleSignIn}>Sign Up</button>
+        <button>Sign Up</button>
     </div>
     </div>
 
   </Container>
+    
+  
 }
 
 const  Container = styled.div`

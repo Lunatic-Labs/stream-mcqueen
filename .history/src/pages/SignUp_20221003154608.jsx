@@ -5,7 +5,6 @@ import Header from '../components/Header';
 import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);

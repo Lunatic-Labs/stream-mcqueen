@@ -14,5 +14,6 @@ export default function App() {
       <Route exact path="/" element={<Netflix/>}/>
      </Routes>
      </BrowserRouter>
+     <Footer/>
     )
 }
