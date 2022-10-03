@@ -4,8 +4,6 @@ import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
 import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
-import { firebaseAuth } from '../utils/firebase-config';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +14,6 @@ export default function SignUp() {
     const handleSignIn = async () => {
         try {
             const {email, password} = formValues;
-            await createUserWithEmailAndPassword(firebaseAuth, email, password)
         } catch(err) {
             console.log(err)
         }
