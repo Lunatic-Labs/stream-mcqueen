@@ -69,19 +69,10 @@ const  Container = styled.div`
                 border: none;
                 cursor: pointer;
                 color: white;
+                border-radius: 0.2 rem;
                 font-weight: bolder;
                 font-size: 1.05 rem;
             }
-        }
-        button {
-            padding: 0.5 rem 1rem;
-            background-color: #F3AA02;
-            border: none;
-            cursor: pointer;
-            color: white;
-            border-radius: 0.2 rem;
-            font-weight: bolder;
-            font-size: 1.05 rem;
         }
     }
 `;
