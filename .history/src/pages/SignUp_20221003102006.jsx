@@ -6,11 +6,7 @@ import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
 
 export default function SignUp() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [formValues, setFormValues] = useState({
-        email: "",
-        password: "",
-    });
+    const [showPassword, setShowPassword] = useState(false)
   return <Container showPassword={showPassword}>
     <BackgroundImage/>
     <div className="content">
@@ -23,16 +19,10 @@ export default function SignUp() {
         </div>
         <div className="form">
             <input type="email" placeholder='Email Address' name='email'/>
-            {
-                showPassword && 
-                    (<input type="password" placeholder='Password' name='password' />)
-            }
-            {
-                !showPassword && 
-                    (<button onClick={()=>setShowPassword(true)}>Sign Up</button>)
-            }
+            <input type="password" placeholder='Password' name='password' />
+            <button>Sign Up</button>
         </div>
-        <button>Sign Up</button>
+        <button>Log In</button>
     </div>
     </div>
 
@@ -63,7 +53,6 @@ const  Container = styled.div`
             }
             .form {
                 display: grid;
-                grid-template-columns: ${({showPassword})=>showPassword ?"1fr 1fr": "2fr 1fr"};
                 width: 40%;
                 input {
                     color: black;

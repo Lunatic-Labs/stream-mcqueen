@@ -6,11 +6,7 @@ import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
 
 export default function SignUp() {
-    const [showPassword, setShowPassword] = useState(false);
-    const [formValues, setFormValues] = useState({
-        email: "",
-        password: "",
-    });
+    const [showPassword, setShowPassword] = useState(false)
   return <Container showPassword={showPassword}>
     <BackgroundImage/>
     <div className="content">
