@@ -25,7 +25,7 @@ export default function SignUp() {
     };
 
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
-        if(currentUser) navigate("/"); //TODO: may want to add 2FA
+        if(currentUser) navigate("/");
     })
   return <Container showPassword={showPassword}>
     <BackgroundImage/>

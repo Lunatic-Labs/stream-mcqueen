@@ -6,7 +6,7 @@ import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export default function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
@@ -25,7 +25,7 @@ export default function SignUp() {
     };
 
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
-        if(currentUser) navigate("/"); //TODO: may want to add 2FA
+        if(currentUser) navigate("/");
     })
   return <Container showPassword={showPassword}>
     <BackgroundImage/>
