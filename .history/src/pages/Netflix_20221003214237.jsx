@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar';
-import BackgroundImage from '../components/BackgroundImage';
 
 export default function Netflix() {
 
@@ -13,6 +12,8 @@ export default function Netflix() {
 
   return (
     <div>
+      <h1>iuahsdhsd</h1>
+      <button>ljshdfks</button>
       <Navbar isScrolled={isScrolled}/>
     </div>
   )
