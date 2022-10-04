@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Login from './pages/Login'
 import Netflix from './pages/Netflix'
 import SignUp from './pages/SignUp'
+import Player from './components/Player';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
      <Routes>
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/signup" element={<SignUp/>}/>
+      <Route exact path="/player" element={<Player/>}/>
       <Route exact path="/" element={<Netflix/>}/>
      </Routes>
      </BrowserRouter>
