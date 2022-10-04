@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/Logo.png'
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {FaPowerOff, FaSearch} from 'react-icons/fa'
 import { signOut, onAuthStateChanged } from 'firebase/auth';
@@ -20,7 +20,7 @@ export default function Navbar({isScrolled}) {
     const navigate = useNavigate();
 
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
-        if(!currentUser) navigate("/login"); //TODO: may want to add 2FA
+        if(currentUser) navigate("/login"); //TODO: may want to add 2FA
     });
 
     const [showSearch, setShowSearch] = useState(false);
@@ -63,6 +63,7 @@ export default function Navbar({isScrolled}) {
                     />
                 </div>
                 <button onClick={()=>{
+                    alert("hello")
                     signOut(firebaseAuth)}}>
                     <FaPowerOff/>
                 </button>

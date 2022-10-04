@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/Logo.png'
-import { Link, useNavigate} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {FaPowerOff, FaSearch} from 'react-icons/fa'
-import { signOut, onAuthStateChanged } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { firebaseAuth } from '../utils/firebase-config';
 
 export default function Navbar({isScrolled}) {
@@ -16,12 +16,6 @@ export default function Navbar({isScrolled}) {
         { name:"Sports", link: "/sports" },
         { name:"My List", link: "/mylist" },
     ]
-    
-    const navigate = useNavigate();
-
-    onAuthStateChanged(firebaseAuth,(currentUser)=> {
-        if(!currentUser) navigate("/login"); //TODO: may want to add 2FA
-    });
 
     const [showSearch, setShowSearch] = useState(false);
     const [inputHover, setInputHover] = useState(false);
@@ -62,8 +56,7 @@ export default function Navbar({isScrolled}) {
                     }}
                     />
                 </div>
-                <button onClick={()=>{
-                    signOut(firebaseAuth)}}>
+                <button onClick={()=>signOut(firebaseAuth)}>
                     <FaPowerOff/>
                 </button>
             </div>
@@ -119,44 +112,11 @@ const Container = styled.div`
                     font-size: 1.2rem;
                 }
             }
-            .search {
+            .search (
                 display: flex;
                 gap: 0.4;
-                align-items: center;
-                justify-content: center;
-                padding: 0.2 rem;
-                padding-left: 0.5rem;
-                button {
-                    background-color: transparent;
-                    svg {
-                        color: white;
-                    }
-                }
-                input {
-                    width: 0;
-                    opacity: 0;
-                    visibility: hidden;
-                    transition: 0.3s ease-in-out;
-                    background-color: transparent;
-                    border: none;
-                    color: white;
-                    &:focus {
-                        outline: none;
-                    }
-                }
-            }
-            .show-search {
-                border: 1px solid white;
-                background color: rgba(0,0,0,0.6);
-                input {
-                    width: 100%;
-                    opacity: 1;
-                    visibility: 0;
-                    padding: 0.3 rem;
-                }
-            }
-        )
 
+            )
         }
     }
 `;
