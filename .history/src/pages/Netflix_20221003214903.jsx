@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar';
-import BackgroundImage from '../components/BackgroundImage';
 
 export default function Netflix() {
 
