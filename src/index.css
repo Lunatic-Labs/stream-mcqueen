@@ -29,6 +29,7 @@ body ::-webkit-scrollbar {
 
 .column{
   flex-direction: column;
+  
 }
 
 .j-between{
