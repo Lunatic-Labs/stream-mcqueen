@@ -5,19 +5,21 @@ import backgroundImage from '../assets/backgroundImage.jpeg';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getGenres } from '../store';
 
 export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
 
- const navigate = useNavigate();
 
- const dispatch = useDispatch();
- useEffect(()=> {
-  dispatch(getGenres)
- },[]) 
+  //remove lines 16-?? when getting rid of dummy data
+  const genresLoaded = useSelector()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getGenres())
+  },[]) 
 
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset===0?false:true);
@@ -29,9 +31,9 @@ export default function LipscombPlus() {
      <Navbar isScrolled={isScrolled}/>
      < div className="hero">
        <img
-       src={backgroundImage}
-       alt="background"
-       className="background-image"
+        src={backgroundImage}
+        alt="background"
+        className="background-image"
        />
        <div className="container">
          <div className="logo">
