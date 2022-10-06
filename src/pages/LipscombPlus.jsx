@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/backgroundImage.jpeg';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getGenres } from '../store';
 
-export default function Netflix() {
+export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
 
  const navigate = useNavigate();
+
+ const dispatch = useDispatch();
+ useEffect(()=> {
+  dispatch(getGenres)
+ },[]) 
+
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset===0?false:true);
    return () => (window.onscroll = null)
