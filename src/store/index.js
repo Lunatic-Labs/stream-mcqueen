@@ -44,19 +44,27 @@ const createArrayFromRawData = (array, moviesArray, genres) => {
 const getRawData = async (api,genres,paging) => {
     const moviesArray = []
     for(let i = 1; moviesArray.length < 60 && i < 10; i++) {
-        const {data:results} = await axios.get(`${api}${paging?`&page=${i}`: ""}`)
+        const {
+            data:{ results }
+        } = await axios.get(
+            `${api}${paging?`&page=${i}`: ""}`
+            )
+        createArrayFromRawData(results, moviesArray, genres)
+        return moviesArray
     }
-    createArrayFromRawData(results, moviesArray, genres)
-    return moviesArray
 }
 
-export const fetchMovies = createAsyncThunk("lipscombplus/trending", async({type},thunkApi) => {
+export const fetchMovies = createAsyncThunk(
+    "lipscombplus/trending", 
+    async({type},thunkApi) => {
     const {
-        LipscombPlusSlice:{ genres }
+        lipscombplus:{ genres }
     } = thunkApi.getState();
-    return getRawData(`${TMBD_BASE_URL}/trending/${type}/week?api_key=${API_KEY}`,genres, true)
+    return getRawData(
+        `${TMBD_BASE_URL}/trending/${type}/week?api_key=${API_KEY}`,genres, true
+        )
     //return getRawData(`${TMBD_BASE_URL}/discover/${type}?api_key=${API_KEY}&with_genres=${genre}`)
-}
+    }
 ) 
 const LipscombPlusSlice = createSlice({
     name: "LipscombPlus",
@@ -65,6 +73,9 @@ const LipscombPlusSlice = createSlice({
         builder.addCase(getGenres.fulfilled,(state,action) => {
             state.genres = action.payload;
             state.genresLoaded = true;
+        })
+        builder.addCase(fetchMovies.fulfilled,(state,action) => {
+            state.movies = action.payload;
         })
     },
 })

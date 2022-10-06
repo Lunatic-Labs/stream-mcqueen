@@ -6,26 +6,32 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getGenres } from '../store';
+import { fetchMovies, getGenres } from '../store';
 
 export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
 
 
-  //remove lines 16-?? when getting rid of dummy data
-  const genresLoaded = useSelector()
+  //remove lines 16-28 when getting rid of dummy data
+  const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
+  const movies = useSelector((state) => state.lipscombplus.movies)
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getGenres())
   },[]) 
+
+  useEffect(() => {
+    if(genresLoaded) dispatch(fetchMovies({type: "all"}))
+  }) 
 
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset===0?false:true);
    return () => (window.onscroll = null)
  }
- 
+
  return (
    <Container>
      <Navbar isScrolled={isScrolled}/>
