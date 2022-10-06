@@ -6,7 +6,6 @@ import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
- 
 export default function Netflix() {
  
  const [isScrolled, setIsScrolled] = useState(false);
