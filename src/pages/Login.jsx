@@ -69,12 +69,9 @@ export default function Login(props) {
               }
              />
                <button onClick={handleLogIn}className = "LogIn">Log In</button>
-
                <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
                  {props.login ? "Log In" : "Create an account"}
                 </button>
-
-            
            </div>
         </div>
     </div>
@@ -90,12 +87,9 @@ const  Container = styled.div`
     overflow-y: hidden;
     
     .title{
-
       padding-right:5 ptx;
       text-align: center;
       margin-bottom:50px;
-     
-
     }
 
     .input {
@@ -107,7 +101,6 @@ const  Container = styled.div`
       border-style: hidden;
       border-radius: 9px;
       align: center;
-
     }
     
     h1{
@@ -117,10 +110,7 @@ const  Container = styled.div`
       font-weight: 900;
       font-size: 90px;
       margin-down:10px;
-      
-      
-      
-      
+
     }
     .Email{
       position: relative;
@@ -146,13 +136,12 @@ const  Container = styled.div`
       display: grid;
     }
      
-
     .form-container {
       height: 60vh;
     }
            
-
      button {
+        font-weight: bold;
         padding: 5px 10px;
         margin:5px;
         background-color: transparent;
@@ -163,17 +152,8 @@ const  Container = styled.div`
         font-size: 15px;
         width:180px;
         position: relative;
-        left: 175px;
-        
-        
-
+        left: 205px;
       }
-      
-      
-
-      
-     
-   
   `;
 
 
