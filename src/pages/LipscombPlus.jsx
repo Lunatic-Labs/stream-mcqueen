@@ -1,29 +1,45 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/backgroundImage.jpeg';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovies, getGenres } from '../store';
 
-export default function Netflix() {
+export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
 
- const navigate = useNavigate();
+
+  //remove lines 16-28 when getting rid of dummy data
+  const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
+  const movies = useSelector((state) => state.lipscombplus.movies)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGenres())
+  },[]) 
+
+  useEffect(() => {
+    if(genresLoaded) dispatch(fetchMovies({type: "all"}))
+  }) 
+
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset===0?false:true);
    return () => (window.onscroll = null)
  }
- 
+
  return (
    <Container>
      <Navbar isScrolled={isScrolled}/>
      < div className="hero">
        <img
-       src={backgroundImage}
-       alt="background"
-       className="background-image"
+        src={backgroundImage}
+        alt="background"
+        className="background-image"
        />
        <div className="container">
          <div className="logo">
