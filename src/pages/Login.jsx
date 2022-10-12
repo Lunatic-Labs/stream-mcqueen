@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
+import lipscombLogoWhite from '../assets/lipscombLogoWhite.png';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
@@ -33,7 +34,7 @@ export default function Login(props) {
     <div className="form-container flex column a-center j-center">
         <div className="form flex column a-center j-center">
            <div className="title">
-              <h1>LIPSCOMB +</h1>
+              <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
            </div>
            <div className="Email">
               <h4 >Email</h4>
