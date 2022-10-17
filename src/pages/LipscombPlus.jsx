@@ -69,9 +69,10 @@ background-color: black;
  position: relative;
  .background-image {
    filter: brightness(60%);
+   object-fit: cover;
  }
  img {
-   height: 100vh;
+   height: 75vh;
    width: 100vw;
  }
  .container {
