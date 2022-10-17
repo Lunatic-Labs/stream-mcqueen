@@ -76,8 +76,8 @@ export default function Card({movieData, isLiked = false}) {
   )
 }
  const Container = styled.div`
-  max-width: 230px;
-  width: 230px;
+  max-width: 330px;
+  width: 330px;
   height: 100%;
   cursor: pointer;
   position: relative;
@@ -90,9 +90,9 @@ export default function Card({movieData, isLiked = false}) {
   .hover {
     z-index: 90;
     height: max-content;
-    width: 20rem;
+    width: 20.65rem;
     position: absolute;
-    top: -18vh;
+    top: -2vh;
     left: 0;
     border-radius: 0.3rem;
     box-shadow: rgba(0,0,0,0.75) 0px 3px 10px;

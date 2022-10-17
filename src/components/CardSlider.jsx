@@ -5,11 +5,14 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 
-export default function CardSlider({data, title}) {
+export default React.memo ( function CardSlider({data, title}) {
   const [showControls, setShowControls] = useState(false);
   const [sliderPosition, setSliderPosition] = useState(0);
   const listRef = useRef();
 
+  // handleDirection deals with scrolling left and right on each card slider
+  // using getBoundingClientRect, which returns a DOMRect object with 8 position properties
+  // such as left, top, right, bottom, x, y width and height.
   const handleDirection = (direction) => {
     let distance = listRef.current.getBoundingClientRect().x -70;
     if(direction === "left" && sliderPosition > 0) {
@@ -49,7 +52,7 @@ export default function CardSlider({data, title}) {
 
     </Container>
   )
-}
+});
 const Container = styled.div`
   gap: 1rem;
   position: relative;
