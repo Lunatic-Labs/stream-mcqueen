@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, getGenres } from '../store';
 
+import Slider from '../components/Slider';
+
 export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
@@ -55,6 +57,8 @@ export default function LipscombPlus() {
          </div>
        </div>
      </div>
+     <Slider movies={movies}
+     />
    </Container>
  )
 }
@@ -65,9 +69,10 @@ background-color: black;
  position: relative;
  .background-image {
    filter: brightness(60%);
+   object-fit: cover;
  }
  img {
-   height: 100vh;
+   height: 75vh;
    width: 100vw;
  }
  .container {
