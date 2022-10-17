@@ -1,8 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
-import lipscombLogoWhite from '../assets/lipscombLogoWhite.png';
+import lipscombLogoWhite from '../assets/lipscombLogoWhiteResized.png';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
@@ -86,22 +86,25 @@ const  Container = styled.div`
 
     position: relative;
     overflow-y: hidden;
+
     
     .title{
       padding-right:5 ptx;
       text-align: center;
-      margin-bottom:50px;
+      margin-bottom: 50px;
+      
     }
 
     .input {
       padding: 1rem;
-      width: 35rem;
-      height: 3rem;
+      width: 560px;
+      height: 60px;
       background-color: #F8F8FF;
       margin: 1.3rem;
       border-style: hidden;
       border-radius: 9px;
       align: center;
+      font-size: 17px;
     }
     
     h1{
@@ -117,15 +120,11 @@ const  Container = styled.div`
       position: relative;
       top 10px;
       left: -245px;
-      font-radius: 5px;
-
     }
     .Password{
       position: relative;
       top 10px;
       left: 35px;
-
-      font-radius: 5px;
     }
     
     .content {
