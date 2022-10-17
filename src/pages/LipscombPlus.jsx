@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/backgroundImage.jpeg';
+import logo from '../assets/lipscombLogoWhite.png';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -45,7 +46,11 @@ export default function LipscombPlus() {
        />
        <div className="container">
          <div className="logo">
-          
+         <img
+          src={logo}
+          alt="logo"
+          className="logo"
+       />
          </div>
          <div className="buttons flex">
            <button className="flex j-center a-center" onClick={()=>navigate('/player')}>
@@ -80,8 +85,8 @@ background-color: black;
    bottom: 5rem;
    .logo {
      img {
-       width: 100%;
-       height: 100%;
+       width: 30%;
+       height: 30%;
        margin-left: 5rem;
      }
    }
