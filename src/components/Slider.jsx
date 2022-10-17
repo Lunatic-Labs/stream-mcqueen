@@ -8,6 +8,7 @@ export default React.memo (function Slider({movies}) {
         return movies.slice(from, to)
     }
 
+    //move to stylesheet when css is restructured
     const myStyle={
       backgroundImage: `url(${background})`,
       backgroundSize: 'cover',
