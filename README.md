@@ -1,5 +1,12 @@
 # Lipscomb+ | Stream Mcqueen
+Lipscomb+ is an app designed to connect attending and prospective students to Lipscomb University through videos showcasing Lipscomb sports and events.
 
+## Technologies and Languages
+
+#### Tools:
+- React
+- Firebase 
+- yarn
 
 ## Available Scripts
 
@@ -67,3 +74,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## yarn Installation and Local Host
+
+### `npm install --global yarn` 
+Installs yarn via npm and updates it as well.
+
+### `yarn install`
+Installing all the dependencies of project
+
+### `yarn start`
+Starts up the develop ment server with [http://localhost:3000](http://localhost:3000).
