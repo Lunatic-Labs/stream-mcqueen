@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from '../assets/Logo.png'
+import Logo from '../assets/lipscombLogoWhite.png'
 import { Link, useNavigate} from 'react-router-dom';
 import { useState } from 'react';
 import {FaPowerOff, FaSearch} from 'react-icons/fa'
