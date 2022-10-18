@@ -6,7 +6,10 @@ import styled from 'styled-components'
 export default function Header() {
   const navigate = useNavigate()
   return (
-    <div></div>
+    <div>
+      <h1>Welcome to Lipscomb+</h1>
+      <p>Lipscomb University is a great place to go to college. Let us show you why.</p>
+    </div>
   )
 }
  const Container = styled.div`
