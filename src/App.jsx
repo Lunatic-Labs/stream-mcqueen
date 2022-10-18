@@ -5,6 +5,10 @@ import Login from './pages/Login'
 import LipscombPlus from './pages/LipscombPlus'
 import SignUp from './pages/SignUp'
 import Player from './components/Player';
+import Concerts from './pages/Concerts';
+import Events from './pages/Events'
+import Sports from './pages/Sports'
+import Chapels from './pages/Chapels'
 
 export default function App() {
   return (
@@ -13,6 +17,10 @@ export default function App() {
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/signup" element={<SignUp/>}/>
       <Route exact path="/player" element={<Player/>}/>
+      <Route exact path="/chapels" element={<Chapels/>}/>
+      <Route exact path="/concerts" element={<Concerts/>}/>
+      <Route exact path="/events" element={<Events/>}/>
+      <Route exact path="/sports" element={<Sports/>}/>
       <Route exact path="/" element={<LipscombPlus/>}/>
      </Routes>
      </BrowserRouter>

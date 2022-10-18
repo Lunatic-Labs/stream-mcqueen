@@ -9,13 +9,15 @@ import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import NotAvailable from '../components/NotAvailable';
 
-export default function Concerts() {
+export default function Chapels() {
 const [isScrolled, setIsScrolled] = useState(false);
 
 
   //remove lines 16-28 when getting rid of dummy data
   const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
   const movies = useSelector((state) => state.lipscombplus.movies)
+  const genres = useSelector((state) => state.lipscombplus.genres)
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,9 +35,9 @@ const [isScrolled, setIsScrolled] = useState(false);
  }
 
  onAuthStateChanged(firebaseAuth,(currentUser)=> {
-    // if(currentUser) navigate("/"); //TODO: may want to add 2FA
- })
- return (
+   // if(currentUser) navigate("/"); //TODO: may want to add 2FA
+})
+  return (
     <Container>
         <div className="navbar">
         <Navbar isScrolled={isScrolled}/>

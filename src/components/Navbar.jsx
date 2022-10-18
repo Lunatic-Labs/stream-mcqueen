@@ -10,7 +10,7 @@ import { firebaseAuth } from '../utils/firebase-config';
 export default function Navbar({isScrolled}) {
 
     const links=[
-        { name:"Home", link: "/" },
+        { name:"Chapels", link: "/chapels" },
         { name:"Events", link: "/events" },
         { name:"Concerts", link: "/concerts" },
         { name:"Sports", link: "/sports" },
@@ -31,7 +31,9 @@ export default function Navbar({isScrolled}) {
         <nav className={`flex ${isScrolled ? "scrolled" : ""}`}>
             <div className="left flex a-center">
                 <div className="brand flex a-center j-center">
+                    <a href='/'>
                     <img src={Logo} alt="logo" />
+                    </a>
                 </div>
                 <ul className='links flex'>
                 {links.map(({name,link})=>{
