@@ -84,4 +84,4 @@ Installs yarn via npm and updates it as well.
 Installing all the dependencies of project
 
 ### `yarn start`
-Starts up the develop ment server with [http://localhost:3000](http://localhost:3000).
+Starts up the development server with [http://localhost:3000](http://localhost:3000).
