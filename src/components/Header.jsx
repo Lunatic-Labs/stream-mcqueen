@@ -6,7 +6,8 @@ import styled from 'styled-components'
 export default function Header() {
   const navigate = useNavigate()
   return (
-    <div></div>
+    <div>
+    </div>
   )
 }
  const Container = styled.div`
