@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import background from '../assets/login.jpeg'
+import background from '../assets/Dark_GradientDark_Gradient.jpg'
 
 export default function BackgroundImage() {
   return (
@@ -12,9 +12,18 @@ export default function BackgroundImage() {
  const Container = styled.div`
     height: 100vh;
     width: 100vw:
+    background-position: center;
     img {
         height: 100vh;
-        width: 100vw:
+        width: 100vw;
+        
+       
+            
+      
+      
+      
+          
+        
     }
  `;
 

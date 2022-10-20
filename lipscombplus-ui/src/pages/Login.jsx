@@ -1,13 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
+import lipscombLogoWhite from '../assets/lipscombLogoWhiteResized.png';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login(props) {
     const [formValues, setFormValues] = useState({
         email: "",
         password: "",
@@ -27,19 +28,23 @@ export default function Login() {
     })
   return (
    <Container>
-    <BackgroundImage/>
+    <BackgroundImage className ="background"/>
     <div className="content">
     <Header/>
     <div className="form-container flex column a-center j-center">
         <div className="form flex column a-center j-center">
            <div className="title">
-              <h3>Login</h3>
+              <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
+           </div>
+           <div className="Email">
+              <h4 >Email</h4>
            </div>
            <div className="container flex column">
            <input 
                 type="email" 
                 placeholder='Email Address' 
                 name='email' 
+                className="input"
                 value={formValues.email} 
                 onChange={(e)=>
                 setFormValues({
@@ -48,10 +53,14 @@ export default function Login() {
                 })
              }
             />
+            <div className="Password">
+              <h4>Password</h4>
+           </div>
             <input 
                 type="password" 
                 placeholder='Password' 
                 name='password' 
+                className="input"
                 value={formValues.password} 
                 onChange={(e)=>
                 setFormValues({
@@ -60,7 +69,10 @@ export default function Login() {
                 })
               }
              />
-            <button onClick={handleLogIn}>Log In</button>
+               <button onClick={handleLogIn}className = "LogIn">Log In</button>
+               <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
+                 {props.login ? "Log In" : "Create an account"}
+                </button>
            </div>
         </div>
     </div>
@@ -71,42 +83,79 @@ export default function Login() {
 }
 
 const  Container = styled.div`
+
     position: relative;
-    .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100vh;
-        width: 100vw;
-        display: grid;
-        grid-template-rows: 15vh 85vh;
-        .form-container {
-          gap: 2rem;
-          height: 40vh;
-          .form {
-            padding: 2rem;
-            background-color: #000000b0;
-            width: 20vw;
-            gap: 2rem;
-            color: white;
-            .container {
-              gap: 2rem:
-              .input {
-                padding: 0.5 rem 1rem;
-                width: 15rem;
-              }
-              button {
-                padding: 0.5 rem 1rem;
-                background-color: #F3AA02;
-                border: none;
-                cursor: pointer;
-                color: white;
-                border-radius: 0.2 rem;
-                font-weight: bolder;
-                font-size: 1.05 rem;
-              }
-            }
-          }
-        }
+    overflow-y: hidden;
+
+    
+    .title{
+      padding-right:5 ptx;
+      text-align: center;
+      margin-bottom: 50px;
+      
     }
-`;
+
+    .input {
+      padding: 1rem;
+      width: 560px;
+      height: 60px;
+      background-color: #F8F8FF;
+      margin: 1.3rem;
+      border-style: hidden;
+      border-radius: 9px;
+      align: center;
+      font-size: 17px;
+    }
+    
+    h1{
+      display: inline;
+      font-family:Serif;
+      letter-spacing: 1.5px;
+      font-weight: 900;
+      font-size: 90px;
+      margin-down:10px;
+
+    }
+    .Email{
+      position: relative;
+      top 10px;
+      left: -245px;
+    }
+    .Password{
+      position: relative;
+      top 10px;
+      left: 35px;
+    }
+    
+    .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      display: grid;
+    }
+     
+    .form-container {
+      height: 60vh;
+    }
+           
+     button {
+        font-weight: bold;
+        padding: 5px 10px;
+        margin:5px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        border-radius: 5px;
+        font-size: 15px;
+        width:180px;
+        position: relative;
+        left: 205px;
+      }
+  `;
+
+
+    
+
