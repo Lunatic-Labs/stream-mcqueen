@@ -1,9 +1,15 @@
 import React from 'react'
 import styled from "styled-components"
+import { useDispatch } from 'react-redux';
+import { fetchDataByGenre } from '../store';
 
-export default function SelectGenre(genres, type) {
+export default function SelectGenre({genres, type}) {
+  const dispatch = useDispatch();
+
   return (
-    <Select>
+    <Select className='flex' onChange={e => {
+      dispatch(fetchDataByGenre({genre: e.target.value}))
+    }}>
         {genres.map((genre) => {
             return (
                 <option value={genre.id} key={genre.id}>
@@ -14,3 +20,5 @@ export default function SelectGenre(genres, type) {
     </Select>
   )
 }
+
+const Select = styled.select``;

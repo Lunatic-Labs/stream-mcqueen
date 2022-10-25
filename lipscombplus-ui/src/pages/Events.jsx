@@ -8,39 +8,43 @@ import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import NotAvailable from '../components/NotAvailable';
+import SelectGenre from '../components/SelectGenre';
 
 export default function Events() {
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
 
-    //remove lines 16-28 when getting rid of dummy data
-    const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
-    const movies = useSelector((state) => state.lipscombplus.movies)
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-  
-    useEffect(() => {
-      dispatch(getGenres())
-    },[]) 
-  
-    useEffect(() => {
-      if(genresLoaded) dispatch(fetchMovies({type: "all"}))
-    }) 
-  
-   window.onscroll = () => {
-     setIsScrolled(window.pageYOffset===0?false:true);
-     return () => (window.onscroll = null)
-   }
+  const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
+  const movies = useSelector((state) => state.lipscombplus.movies)
+  //will need to change how genres are served | currently being served via TMBD api
+  const genres = useSelector((state) => state.lipscombplus.genres)
 
-   onAuthStateChanged(firebaseAuth,(currentUser)=> {
-    // if(currentUser) navigate("/"); //TODO: may want to add 2FA
- })
-   return (
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGenres())
+  },[]) 
+
+  useEffect(() => {
+    if(genresLoaded) dispatch(fetchMovies({type: "movies"}))
+  }) 
+
+ window.onscroll = () => {
+   setIsScrolled(window.pageYOffset===0?false:true);
+   return () => (window.onscroll = null)
+ }
+
+ onAuthStateChanged(firebaseAuth,(currentUser)=> {
+   // if(currentUser) navigate("/"); //TODO: may want to add 2FA
+})
+  return (
     <Container>
         <div className="navbar">
         <Navbar isScrolled={isScrolled}/>
         </div>
         <div className="data">
+        <SelectGenre genres={genres} type="movie" />
             {
                 movies.length ? <Slider movies={movies}/> : <NotAvailable/>
             }
