@@ -11,10 +11,9 @@ module.exports.addToLikedMedia = async (req, res) => {
                 await User.findByIdAndUpdate(
                     user._id,
                     {
-                        likedMedia:[...user,likedMedia, data],
+                        likedMedia:[...user.likedMedia, data],
                     },
-                    {new:true}
-                )
+                    {new:true})
             } else return res.json({msg: "Video has already been added to yout liked list."})
         }else await User.create({email, likedMedia: [data]})
         return res.json({msg : "Video added Successfully"})
