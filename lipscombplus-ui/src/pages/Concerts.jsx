@@ -8,14 +8,17 @@ import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import NotAvailable from '../components/NotAvailable';
+import SelectGenre from '../components/SelectGenre';
 
 export default function Concerts() {
-const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
 
-  //remove lines 16-28 when getting rid of dummy data
   const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
   const movies = useSelector((state) => state.lipscombplus.movies)
+  //will need to change how genres are served | currently being served via TMBD api
+  const genres = useSelector((state) => state.lipscombplus.genres)
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,7 +27,7 @@ const [isScrolled, setIsScrolled] = useState(false);
   },[]) 
 
   useEffect(() => {
-    if(genresLoaded) dispatch(fetchMovies({type: "all"}))
+    if(genresLoaded) dispatch(fetchMovies({type: "movies"}))
   }) 
 
  window.onscroll = () => {
@@ -33,14 +36,15 @@ const [isScrolled, setIsScrolled] = useState(false);
  }
 
  onAuthStateChanged(firebaseAuth,(currentUser)=> {
-    // if(currentUser) navigate("/"); //TODO: may want to add 2FA
- })
- return (
+   // if(currentUser) navigate("/"); //TODO: may want to add 2FA
+})
+  return (
     <Container>
         <div className="navbar">
         <Navbar isScrolled={isScrolled}/>
         </div>
         <div className="data">
+        <SelectGenre genres={genres} type="movie" />
             {
                 movies.length ? <Slider movies={movies}/> : <NotAvailable/>
             }
