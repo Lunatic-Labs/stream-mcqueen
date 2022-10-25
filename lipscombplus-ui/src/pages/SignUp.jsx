@@ -24,6 +24,12 @@ export default function SignUp(props) {
         }
     };
 
+    const handleSubmit = event => {
+        handleSignIn();
+        event.preventDefault();
+  
+    }
+
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
@@ -31,6 +37,7 @@ export default function SignUp(props) {
     <BackgroundImage/>
     <div className="content">
     <div className="body flex column a-center j-center">
+        <form onSubmit={handleSubmit}>
         <div className='lipscomblogo'>
             <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
         </div>
@@ -78,7 +85,7 @@ export default function SignUp(props) {
                     />                
             </div>
         </div>
-        <button onClick={handleSignIn} className="CreateAccount">Create Account</button> 
+        <button type="submit" onClick={handleSignIn} className="CreateAccount">Create Account</button> 
 
         <div className='BackToLogin'>
                     <h5>Already have an account?</h5>
@@ -88,7 +95,7 @@ export default function SignUp(props) {
 
         </div>
         
-     
+        </form>
     </div>
     </div>
 
