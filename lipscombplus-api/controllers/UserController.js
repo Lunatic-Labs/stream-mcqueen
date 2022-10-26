@@ -6,7 +6,7 @@ module.exports.addToLikedMedia = async (req, res) => {
         const user = await User.findOneAndUpdate({ email });
         if(user) {
             const { likedMedia } = user;
-            const mediaAlreadyLiked = likedMedia.find(({ id })=> (id = data.id));
+            const mediaAlreadyLiked = likedMedia.find(({ id })=> (id === data.id));
             if(!mediaAlreadyLiked) {
                 await User.findByIdAndUpdate(
                     user._id,
@@ -21,3 +21,15 @@ module.exports.addToLikedMedia = async (req, res) => {
         return res.json({msg : "Error adding media"})
     }
 };
+
+module.exports.getLikedMedia = async(req,res) => {
+    try {
+        const { email } = req.params;
+        const user = await User.findOne({ email });
+        if(user) {
+            res.json({ msg: "success", movies: user.likedMedia })
+        }else return res.json({msg: "User with given email not found."})
+    } catch(err) {
+        return res.json({msg : "Error fetching media"})
+    }
+}
