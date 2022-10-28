@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import "../stylepages/lipscombplus.css";
 import Navbar from '../components/Navbar';
 import backgroundImage from '../assets/backgroundImage.jpeg';
 import Header from '../components/Header';
@@ -36,7 +36,7 @@ export default function LipscombPlus() {
  }
 
  return (
-   <Container>
+   <div className='container1'>
      <Navbar isScrolled={isScrolled}/>
      < div className="hero">
        <img
@@ -45,7 +45,7 @@ export default function LipscombPlus() {
         className="background-image"
        />
 {/* ?????? */}
-       <div className="container">
+       <div className="container2">
          <div className="title text">
           <Header></Header>
          </div>
@@ -62,57 +62,7 @@ export default function LipscombPlus() {
      </div>
      <Slider movies={movies}
      />
-   </Container>
+   </div>
  )
 }
  
-const  Container = styled.div`
-background-color: black;
-.hero {
- position: relative;
- .background-image {
-   filter: brightness(60%);
-   object-fit: cover;
- }
- img {
-   height: 75vh;
-   width: 100vw;
- }
- .container {
-   position: absolute;
-   bottom: 5rem;
-   .logo {
-     img {
-       width: 30%;
-       height: 30%;
-       margin-left: 5rem;
-     }
-   }
-   .buttons {
-     margin 5rem;
-     gap: 2rem;
-     button {
-       font-size: 1.4rem;
-       gap: 1rem;
-       border-radius: 0.2rem;
-       padding: 0.5rem;
-       padding-left: 2rem;
-       padding-right: 2.4rem;
-       border: none;
-       cursor: pointer;
-       transition: 0.3s ease-in-out;
-       &:hover {
-         opacity: 0.8;
-       }
-       &:nth-of-type(2) {
-         background-color: rgba(109, 109, 110, 0.7);
-         color: #F3AA02;
-         svg {
-           font-size: 1.8rem;
-         }
-       }
-     }
-   }
- }
-}
-`;
