@@ -1,6 +1,6 @@
 # Braching/SDLC Docs
 
-This documentation is for future developers and explains the braching format and GitHub etiquette used in this project.
+This documentation is for future developers and explains the tools, branching format, and GitHub etiquette used in this project.
 
 ## Tools:
 - React v18.2.0
