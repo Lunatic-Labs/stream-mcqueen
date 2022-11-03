@@ -23,6 +23,12 @@ export default function Login(props) {
         }
     };
 
+    const handleSubmit = event => {
+      handleLogIn();
+      event.preventDefault();
+
+  }
+
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
@@ -31,6 +37,7 @@ export default function Login(props) {
     <BackgroundImage className ="background"/>
     <div className="content">
     <Header/>
+    <form onSubmit={handleSubmit}>
     <div className="form-container flex column a-center j-center">
         <div className="form flex column a-center j-center">
            <div className="title">
@@ -69,13 +76,14 @@ export default function Login(props) {
                 })
               }
              />
-               <button onClick={handleLogIn}className = "LogIn">Log In</button>
+               <button type="submit" className = "LogIn">Log In</button>
                <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
                  {props.login ? "Log In" : "Create an account"}
                 </button>
            </div>
         </div>
     </div>
+    </form>
     </div>
 
   </Container>
@@ -155,7 +163,3 @@ const  Container = styled.div`
         left: 205px;
       }
   `;
-
-
-    
-
