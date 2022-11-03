@@ -45,13 +45,7 @@ module.exports.removeFromLikedMedia = async(req,res) => {
             likedMedia.splice(mediaIndex, 1)
             
             await User.findByIdAndUpdate(
-                user._id,
-                {
-                    likedMedia: [...user.likedMedia, data],
-                },
-                { new: true }
-            )
-        }
+        
     } catch(err) {
         return res.json({msg : "Error fetching media"})
     }

@@ -50,8 +50,6 @@ module.exports.removeFromLikedMedia = async(req,res) => {
                     likedMedia: [...user.likedMedia, data],
                 },
                 { new: true }
-            )
-        }
     } catch(err) {
         return res.json({msg : "Error fetching media"})
     }

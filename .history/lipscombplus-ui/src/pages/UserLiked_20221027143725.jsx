@@ -14,9 +14,11 @@ const [isScrolled, setIsScrolled] = useState(false);
 
   //remove lines 16-28 when getting rid of dummy data
   const movies = useSelector((state) => state.lipscombplus.movies)
+
   const navigate = useNavigate();
+
+
   const [email, setEmail] = useState(undefined);
-  
   onAuthStateChanged(firebaseAuth,(currentUser)=> {
     if(currentUser) setEmail(currentUser.email)
     else navigate("/login"); //TODO: may want to add 2FA

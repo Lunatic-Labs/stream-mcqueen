@@ -6,6 +6,8 @@ import { firebaseAuth } from '../utils/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
+import Slider from '../components/Slider';
+import NotAvailable from '../components/NotAvailable';
 import Card from '../components/Card';
 
 export default function UserLiked() {
@@ -14,9 +16,11 @@ const [isScrolled, setIsScrolled] = useState(false);
 
   //remove lines 16-28 when getting rid of dummy data
   const movies = useSelector((state) => state.lipscombplus.movies)
+
   const navigate = useNavigate();
+
+
   const [email, setEmail] = useState(undefined);
-  
   onAuthStateChanged(firebaseAuth,(currentUser)=> {
     if(currentUser) setEmail(currentUser.email)
     else navigate("/login"); //TODO: may want to add 2FA
@@ -27,7 +31,8 @@ const [isScrolled, setIsScrolled] = useState(false);
     if(email) {
         dispatch(getUserLikedMovies(email))
     }
-  },[email]) 
+    dispatch(getGenres())
+  },[]) 
 
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset===0?false:true);

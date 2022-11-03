@@ -42,16 +42,8 @@ module.exports.removeFromLikedMedia = async(req,res) => {
             const { likedMedia } = user;
             const mediaIndex = likedMedia.fondIndex(({id}) => id === movieId)
             if(!mediaIndex) res.status(400).send({ msg: "Video not Found"})
-            likedMedia.splice(mediaIndex, 1)
-            
-            await User.findByIdAndUpdate(
-                user._id,
-                {
-                    likedMedia: [...user.likedMedia, data],
-                },
-                { new: true }
-            )
-        }
+                await User.findByIdAndUpdate(
+        
     } catch(err) {
         return res.json({msg : "Error fetching media"})
     }
