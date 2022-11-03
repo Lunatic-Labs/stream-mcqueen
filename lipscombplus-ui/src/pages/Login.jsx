@@ -1,8 +1,9 @@
 import React from 'react'
-import styled from 'styled-components';
+import "../stylepages/login.css"
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
-import lipscombLogoWhite from '../assets/lipscombLogoWhiteResized.png';
+import lipscombLogoWhiteMobile from '../assets/lipscombLogoWhiteResizedMobile.png';
+import lipscombLogoWhite from '../assets/lipscombLogoWhiteResizedMobile.png';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
@@ -22,6 +23,8 @@ export default function Login(props) {
             console.log(err)
         }
     };
+    
+    
 
     const handleSubmit = event => {
       handleLogIn();
@@ -33,25 +36,25 @@ export default function Login(props) {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
   return (
-   <Container>
+  <div className='login_container'>
     <BackgroundImage className ="background"/>
-    <div className="content">
+    <div className="login_content">
     <Header/>
     <form onSubmit={handleSubmit}>
-    <div className="form-container flex column a-center j-center">
-        <div className="form flex column a-center j-center">
-           <div className="title">
+    <div className="login_form-container flex column a-center j-center">
+        <div className="login_form flex column a-center j-center">
+           <div className="login_title">
               <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
            </div>
-           <div className="Email">
+           <div className="login_email">
               <h4 >Email</h4>
            </div>
-           <div className="container flex column">
+           <div className="login_container flex column">
            <input 
                 type="email" 
                 placeholder='Email Address' 
                 name='email' 
-                className="input"
+                className="login_input"
                 value={formValues.email} 
                 onChange={(e)=>
                 setFormValues({
@@ -60,14 +63,14 @@ export default function Login(props) {
                 })
              }
             />
-            <div className="Password">
+            <div className="login_password">
               <h4>Password</h4>
            </div>
             <input 
                 type="password" 
                 placeholder='Password' 
                 name='password' 
-                className="input"
+                className="login_input"
                 value={formValues.password} 
                 onChange={(e)=>
                 setFormValues({
@@ -85,8 +88,7 @@ export default function Login(props) {
     </div>
     </form>
     </div>
-
-  </Container>
+  </div>
   );
 }
 
