@@ -2,7 +2,8 @@ import React from 'react'
 import "../stylepages/login.css"
 import BackgroundImage from '../components/BackgroundImage';
 import Header from '../components/Header';
-import lipscombLogoWhite from '../assets/lipscombLogoWhiteResized.png';
+import lipscombLogoWhiteMobile from '../assets/lipscombLogoWhiteResizedMobile.png';
+import lipscombLogoWhite from '../assets/lipscombLogoWhiteResizedMobile.png';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
@@ -22,6 +23,8 @@ export default function Login(props) {
             console.log(err)
         }
     };
+    
+    
 
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA

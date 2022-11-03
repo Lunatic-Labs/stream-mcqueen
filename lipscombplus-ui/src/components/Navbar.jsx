@@ -32,7 +32,7 @@ export default function Navbar({isScrolled}) {
             <div className="navbar_left flex a-center">
                 <div className="navbar_brand flex a-center j-center">
                     <a href='/'>
-                    <img src={Logo} alt="logo" />
+                    <img src={Logo} alt="logo" className='lipscombPlusLogo' />
                     </a>
                 </div>
                 <ul className='navbar_links flex'>

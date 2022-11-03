@@ -1,7 +1,7 @@
 import React from 'react'
 import '../stylepages/signup.css'
 import BackgroundImage from '../components/BackgroundImage';
-import lipscombLogoWhite from '../assets/lipscombLogoWhiteResized.png';
+import lipscombLogoWhite from '../assets/lipscombLogoWhiteResizedMobile.png';
 import { initializeApp } from 'firebase/app';
 import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
