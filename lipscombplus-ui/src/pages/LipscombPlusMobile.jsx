@@ -44,6 +44,10 @@ export default function LipscombPlus() {
         alt="background"
         className="background-image"
        />
+
+    <a href='/'>
+    <img src={Logo} alt="logo" className='lipscombPlusLogo' />
+    </a>
 {/* ?????? */}
        <div className="container2">
          <div className="title text">
