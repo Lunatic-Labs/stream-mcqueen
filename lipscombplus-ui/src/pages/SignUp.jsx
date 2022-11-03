@@ -35,6 +35,58 @@ export default function SignUp(props) {
     })
   return <div className='signup_container'>
     <BackgroundImage/>
+    <div className="content">
+    <div className="body flex column a-center j-center">
+        <form onSubmit={handleSubmit}>
+        <div className='lipscomblogo'>
+            <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
+        </div>
+        
+        <div className="form">
+            <div className='divForm'>
+                    <h4>Full Name</h4>
+                    <input
+                        type="text"
+                        className='fullname' 
+                        required='required'
+                    />
+
+                    <h4>Email</h4>
+                    <input 
+                        type="email"  
+                        name='email' 
+                        required='required'
+                        value={formValues.email} 
+                        onChange={(e)=>
+                        setFormValues({
+                            ...formValues,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                    />          
+            </div>
+        
+            <div>
+                    <h4>Password</h4>
+                    <input 
+                        type="password" 
+                        name='password' 
+                        required='required'
+                        value={formValues.password} 
+                        onChange={(e)=>
+                        setFormValues({
+                            ...formValues,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                    />
+
+                    <h4>Confirm Password</h4>
+                    <input
+                        type="password"
+                        className='confirmpassword' 
+                        required='required'                  
+                    />                
     <div className="signup_content">
             <div className="signup_body flex column a-center j-center">
                 <form onSubmit={handleSubmit}>
@@ -47,6 +99,7 @@ export default function SignUp(props) {
                             <h4>Full Name</h4>
                             <input
                                 type="text"
+                                required='required'
                                 className='signup_fullname' 
                             />
 
@@ -55,6 +108,7 @@ export default function SignUp(props) {
                                 type="email"  
                                 name='email' 
                                 value={formValues.email} 
+                                required='required'
                                 onChange={(e)=>
                                 setFormValues({
                                     ...formValues,
@@ -70,6 +124,7 @@ export default function SignUp(props) {
                                 type="password" 
                                 name='password' 
                                 value={formValues.password} 
+                                required='required'
                                 onChange={(e)=>
                                 setFormValues({
                                     ...formValues,
@@ -81,6 +136,7 @@ export default function SignUp(props) {
                             <h4>Confirm Password</h4>
                             <input
                                 type="password"
+                                required='required'
                                 className='signup_confirmpassword'
                                 
                                                     
