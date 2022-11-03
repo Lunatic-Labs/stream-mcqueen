@@ -48,12 +48,14 @@ export default function SignUp(props) {
                     <input
                         type="text"
                         className='fullname' 
+                        required='required'
                     />
 
                     <h4>Email</h4>
                     <input 
                         type="email"  
                         name='email' 
+                        required='required'
                         value={formValues.email} 
                         onChange={(e)=>
                         setFormValues({
@@ -69,6 +71,7 @@ export default function SignUp(props) {
                     <input 
                         type="password" 
                         name='password' 
+                        required='required'
                         value={formValues.password} 
                         onChange={(e)=>
                         setFormValues({
@@ -80,8 +83,9 @@ export default function SignUp(props) {
 
                     <h4>Confirm Password</h4>
                     <input
-                        type="text"
-                        className='confirmpassword'                   
+                        type="password"
+                        className='confirmpassword' 
+                        required='required'                  
                     />                
             </div>
         </div>

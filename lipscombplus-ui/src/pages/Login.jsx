@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from "../utils/firebase-config";
 
 export default function Login(props) {
     const [formValues, setFormValues] = useState({
@@ -52,6 +53,7 @@ export default function Login(props) {
                 placeholder='Email Address' 
                 name='email' 
                 className="input"
+                required='required'
                 value={formValues.email} 
                 onChange={(e)=>
                 setFormValues({
@@ -68,6 +70,7 @@ export default function Login(props) {
                 placeholder='Password' 
                 name='password' 
                 className="input"
+                required='required'
                 value={formValues.password} 
                 onChange={(e)=>
                 setFormValues({
@@ -80,6 +83,10 @@ export default function Login(props) {
                <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
                  {props.login ? "Log In" : "Create an account"}
                 </button>
+            
+              <div className="options">
+              <button onClick={signInWithGoogle}> Sign in with Google</button>
+              </div>
            </div>
         </div>
     </div>
