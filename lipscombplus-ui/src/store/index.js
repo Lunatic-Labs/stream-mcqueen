@@ -1,4 +1,3 @@
-import { async } from "@firebase/util"
 import {
     configureStore,
     createAsyncThunk,
@@ -6,6 +5,7 @@ import {
 } from "@reduxjs/toolkit"
 import axios from "axios"
 import { API_KEY, TMBD_BASE_URL } from "../utils/constants"
+
 
 const initialState = {
     movies: [],
@@ -66,42 +66,6 @@ export const fetchMovies = createAsyncThunk(
     //return getRawData(`${TMBD_BASE_URL}/discover/${type}?api_key=${API_KEY}&with_genres=${genre}`)
     }
 ) 
-
-export const fetchDataByGenre = createAsyncThunk(
-    "lipscombplus/trending", 
-    async({genre, type},thunkApi) => {
-    const {
-        lipscombplus:{ genres }
-    } = thunkApi.getState();
-    return getRawData(
-        `${TMBD_BASE_URL}/discover/${type}?api_key=${API_KEY}&with_genres=${genre}`,genres, true
-        )
-    }
-) 
-
-export const getUserLikedMovies = createAsyncThunk(
-    "lipscombplus/getLiked",
-     async (email) => {
-    const { 
-        data:{ movies }
-    } = await axios.get(
-        `http://localhost:5005/api/user/liked/${email}`)
-    return movies
-})
-
-export const removeFromLikedMovies = createAsyncThunk(
-    "lipscombplus/deleteLiked",
-     async ({email, mediaId}) => {
-    const { 
-        data:{ movies },
-    } = await axios.put(
-        `http://localhost:5005/api/user/delete`, { 
-            email, 
-            mediaId,
-        })
-    return movies
-})
-
 const LipscombPlusSlice = createSlice({
     name: "LipscombPlus",
     initialState,
@@ -111,12 +75,6 @@ const LipscombPlusSlice = createSlice({
             state.genresLoaded = true;
         })
         builder.addCase(fetchMovies.fulfilled,(state,action) => {
-            state.movies = action.payload;
-        })
-        builder.addCase(getUserLikedMovies.fulfilled,(state,action) => {
-            state.movies = action.payload;
-        })
-        builder.addCase(removeFromLikedMovies.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
     },
