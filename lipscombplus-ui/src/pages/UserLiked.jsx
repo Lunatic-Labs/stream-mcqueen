@@ -29,8 +29,10 @@ const [isScrolled, setIsScrolled] = useState(false);
     }
   },[email]) 
 
+
+
  window.onscroll = () => {
-   setIsScrolled(window.pageYOffset===0?false:true);
+   setIsScrolled(window.pageYOffset === 0 ? false : true);
    return () => (window.onscroll = null)
  }
 
@@ -40,7 +42,7 @@ const [isScrolled, setIsScrolled] = useState(false);
         <div className="content flex column">
             <h1>My List</h1>
             <div className="grid flex">
-                {movies.map((movie, index)=> {
+                {movies.map((movie, index) => {
                     return (
                         <Card
                             movieData={movie}

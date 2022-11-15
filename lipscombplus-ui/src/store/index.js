@@ -88,6 +88,20 @@ export const getUserLikedMovies = createAsyncThunk(
         `http://localhost:5005/api/user/liked/${email}`)
     return movies
 })
+
+export const removeFromLikedMovies = createAsyncThunk(
+    "lipscombplus/deleteLiked",
+     async ({email, mediaId}) => {
+    const { 
+        data:{ movies },
+    } = await axios.put(
+        `http://localhost:5005/api/user/delete`, { 
+            email, 
+            mediaId,
+        })
+    return movies
+})
+
 const LipscombPlusSlice = createSlice({
     name: "LipscombPlus",
     initialState,
@@ -100,6 +114,9 @@ const LipscombPlusSlice = createSlice({
             state.movies = action.payload;
         })
         builder.addCase(getUserLikedMovies.fulfilled,(state,action) => {
+            state.movies = action.payload;
+        })
+        builder.addCase(removeFromLikedMovies.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
     },
