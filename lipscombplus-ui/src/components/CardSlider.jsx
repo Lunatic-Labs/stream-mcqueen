@@ -31,13 +31,13 @@ export default React.memo ( function CardSlider({data, title}) {
     >
       <h1>{title}</h1>
       <div className="wrapper">
-        <div className={`slider-action left ${
+        <div className={` slider-action left ${
           !showControls ? "none" : ""
           } flex j-center a-center`} 
         >
           <AiOutlineLeft onClick={()=> handleDirection('left')}/>
         </div>
-        <div className='flex slider' ref={listRef}>
+        <div className='flex slider item' ref={listRef}>
         {data.map((movie,index) => {
             return <Card movieData={movie} index={index} key={movie.id}/>
          })}
