@@ -89,7 +89,7 @@ export const getUserLikedMovies = createAsyncThunk(
     return movies
 })
 
-export const removeFromLikedMovies = createAsyncThunk(
+export const removeFromLikedMedia = createAsyncThunk(
     "lipscombplus/deleteLiked",
      async ({email, mediaId}) => {
     const { 
@@ -116,7 +116,7 @@ const LipscombPlusSlice = createSlice({
         builder.addCase(getUserLikedMovies.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
-        builder.addCase(removeFromLikedMovies.fulfilled,(state,action) => {
+        builder.addCase(removeFromLikedMedia.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
     },

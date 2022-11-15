@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovies, getGenres, getUserLikedMovies } from '../store';
+import { getUserLikedMovies } from '../store';
 import { firebaseAuth } from '../utils/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import styled from 'styled-components'
@@ -10,7 +10,6 @@ import Card from '../components/Card';
 
 export default function UserLiked() {
 const [isScrolled, setIsScrolled] = useState(false);
-
 
   //remove lines 16-28 when getting rid of dummy data
   const movies = useSelector((state) => state.lipscombplus.movies)
@@ -28,8 +27,6 @@ const [isScrolled, setIsScrolled] = useState(false);
         dispatch(getUserLikedMovies(email))
     }
   },[email]) 
-
-
 
  window.onscroll = () => {
    setIsScrolled(window.pageYOffset === 0 ? false : true);
