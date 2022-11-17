@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import NotAvailable from '../components/NotAvailable';
 
+
 export default function Chapels() {
 const [isScrolled, setIsScrolled] = useState(false);
 
