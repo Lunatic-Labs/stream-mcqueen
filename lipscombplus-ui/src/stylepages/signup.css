@@ -10,10 +10,8 @@
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 15vh 85vh;
-    
+    grid-template-rows: 15vh 85vh;   
 }
-
 
 .signup_login{
     font-weight: bold;
@@ -24,9 +22,8 @@
     font-size: 15px;
     width:180px;
     left: 490px;
-    margin-top: 5px;
-    position: relative;
-    
+    margin-top: 8px;
+    position: relative;   
 }
 
 .signup_lipscomblogo{
@@ -48,7 +45,6 @@
     margin-bottom:45px;        
 }
 
-
 .signup_content input:focus {
     outline: none;
 }
@@ -61,25 +57,18 @@
     display: inline;
     text-align:center;
     margin-bottom: 80px;
-
-
 }
 
 .signup_form {
-  
     gap: 10px;    
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
 }
-
-    
+  
 .signup_body {
     gap: 1rem;
-
 }
-
-
 
 .signup_create_account{
     font-weight: bold;
@@ -99,18 +88,13 @@
  @media only screen and (max-width: 768px){
 
     .signup_container{
-        position: relative;
-        
-        
+        position: relative;  
     }
     
     .signup_content {
         position: absolute;
         display: inline;
-        
-    
     }
-    
     
     .signup_login{
         font-weight: bold;
@@ -120,10 +104,7 @@
         color: white;
         font-size: 15px;
         width:180px;
-        left: 70px;
-        
-        
-        
+        left: 70px;        
     }
     
     .signup_lipscomblogo{
@@ -133,18 +114,15 @@
     
     .signup_content input {
         width: 300px;
-        height: 60px;
+        height: 50px;
         background-color: #F8F8FF;
         border: none;
         padding: 1.5rem;
         font-size: 17px;
         margin: 5px;
         border-radius:9px;
-        margin-bottom:20px; 
-       
-          
+        margin-bottom:20px;       
     }
-    
     
     .signup_content input:focus {
         outline: none;
@@ -158,34 +136,20 @@
         display: inline;
         text-align:center;
         margin-bottom: 60px;
-        
-    
-    
     }
     
     .signup_form {
-      
         gap: 10px;    
         display: inline;
         position: relative;
-        margin-left: 50px;
-        
-        
-      
+        margin-left: 50px; 
     }
-
-    
-    
-        
+   
     .signup_body {
         gap: 10px;
-        position: relative;
-        
-        
+        position: relative; 
     }
-    
-    
-    
+
     .signup_create_account{
         font-weight: bold;
         background-color: transparent;
@@ -196,16 +160,10 @@
         width:180px;
         position: relative;
         left: 70px;
-        bottom: 10px;
-        
+        bottom: 4px;
      }
+
      .signup_divForm{
-
         margin-left: 7px;
-
      }
-
-
-
-
  }

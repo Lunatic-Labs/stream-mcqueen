@@ -2,10 +2,15 @@ import React from 'react'
 import '../stylecomponents/navbar.css';
 import Logo from '../assets/lipscombLogoWhite.png'
 import { Link, useNavigate} from 'react-router-dom';
-import { useState } from 'react';
 import {FaPowerOff, FaSearch} from 'react-icons/fa'
 import { signOut, onAuthStateChanged } from 'firebase/auth';
 import { firebaseAuth } from '../utils/firebase-config';
+import {useEffect, useState} from 'react';
+import Sidebar from './Sidebar';
+
+
+
+
 
 export default function Navbar({isScrolled}) {
 
@@ -16,7 +21,30 @@ export default function Navbar({isScrolled}) {
         { name:"Sports", link: "/sports" },
         { name:"My List", link: "/mylist" },
     ]
+
+
+
+////////////////////////////////////////////////////////////////////////////////////// This code checks for mobile device
     
+const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+      function handleWindowResize() {
+        setWindowSize(getWindowSize());
+      }
+  
+      window.addEventListener('resize', handleWindowResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
+
+    function getWindowSize() {
+        const {innerWidth, innerHeight} = window;
+        return {innerWidth, innerHeight};
+      }
+//////////////////////////////////////////////////////////////////////////////////////
     const navigate = useNavigate();
 
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
@@ -25,9 +53,53 @@ export default function Navbar({isScrolled}) {
 
     const [showSearch, setShowSearch] = useState(false);
     const [inputHover, setInputHover] = useState(false);
+    
+    if(getWindowSize().innerWidth <800)
+    {
+       
+        return (
+            <div className='navbar_container'>
+                 <nav className={`navbar_flex ${isScrolled ? "scrolled" : ""}`}>
+                 
+                     <div className="navbar_left flex a-center">
+                         <Sidebar />
+                         
+                     </div>
+                     <div className="navbar_right flex a_center">
+                         <div className={`navbar_search ${showSearch ? "show-search" : ""}`}>
+                             <button className="search_button"
+                             onFocus={()=>setShowSearch(true)} 
+                             onBlur={()=> {
+                                 if (!inputHover) setShowSearch(false)
+                             }}
+                             >
+                             <FaSearch/>
+                             </button>
+                             <input type="text" placeholder='Search'
+                             onMouseEnter={()=>setInputHover(true)}
+                             onMouseLeave={()=>setInputHover(false)}
+                             onBlur={()=>{
+                                 setShowSearch(false);
+                                 setInputHover(false);
+                             }}
+                             />
+                         </div>
+                         <button onClick={()=>{
+                             signOut(firebaseAuth)}}>
+                             <FaPowerOff/>
+                         </button>
+                     </div>
+                 </nav>
+            </div>
+           );
+         
 
-  return (
-   <div className='navbar_container'>
+    }
+    else
+    {
+        return (
+        <>
+        <div className='navbar_container'>
         <nav className={`navbar_flex ${isScrolled ? "scrolled" : ""}`}>
             <div className="navbar_left flex a-center">
                 <div className="navbar_brand flex a-center j-center">
@@ -70,7 +142,11 @@ export default function Navbar({isScrolled}) {
                 </button>
             </div>
         </nav>
-   </div>
+   </div>  
+   </>
   );
+
 }
+}
+
 
