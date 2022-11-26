@@ -64,7 +64,7 @@ export default function SignUp(props) {
                             />          
                     </div>
                 
-                    <div className='signup_divForm'>
+                    <div>
                             <h4>Password</h4>
                             <input 
                                 type="password" 

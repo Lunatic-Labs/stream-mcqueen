@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserLikedMovies } from '../store';
+import { getUserLikedMedia } from '../store';
 import { firebaseAuth } from '../utils/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import styled from 'styled-components'
 import Navbar from '../components/Navbar';
 import Card from '../components/Card';
+import axios from "axios";
+
 
 export default function UserLiked() {
-const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [email, setEmail] = useState(undefined);
 
   //remove lines 16-28 when getting rid of dummy data
   const movies = useSelector((state) => state.lipscombplus.movies)
   const navigate = useNavigate();
-  const [email, setEmail] = useState(undefined);
+  const dispatch = useDispatch();
+ 
   
   onAuthStateChanged(firebaseAuth,(currentUser)=> {
     if(currentUser) setEmail(currentUser.email)
     else navigate("/login"); //TODO: may want to add 2FA
 })
-  const dispatch = useDispatch();
-
   useEffect(() => {
     if(email) {
-        dispatch(getUserLikedMovies(email))
+        dispatch(getUserLikedMedia(email))
     }
   },[email]) 
 
