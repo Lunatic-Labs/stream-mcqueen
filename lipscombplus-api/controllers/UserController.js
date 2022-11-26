@@ -47,13 +47,14 @@ module.exports.removeFromLikedMedia = async(req,res) => {
             await User.findByIdAndUpdate(
                 user._id,
                 {
-                    likedMedia,
+                    likedMedia: [...user.likedMedia, data],
                 },
                 { new: true }
-            )
-            return res.json({msg:"Media Deleted", movies: likedMedia})
-        }
+            );
+            return res.json({ msg: "Media Deleted", likedMedia: [data] })
+        } else return res.json({ msg: "User with given email not found." });
     } catch(err) {
+        console.log(err);
         return res.json({msg : "Error fetching media"})
     }
 }

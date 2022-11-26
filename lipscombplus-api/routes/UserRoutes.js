@@ -3,6 +3,6 @@ const router = require("express").Router();
 
 router.post("/add", addToLikedMedia)
 router.get("/liked/:email", getLikedMedia)
-router.put("/delete", removeFromLikedMedia)
+router.put("/remove", removeFromLikedMedia)
 
 module.exports = router;
