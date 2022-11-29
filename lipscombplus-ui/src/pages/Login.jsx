@@ -23,15 +23,10 @@ export default function Login(props) {
             console.log(err)
         }
     };
-    
-    
-
     const handleSubmit = event => {
-      handleLogIn();
-      event.preventDefault();
-
-  }
-
+        handleLogIn();
+        event.preventDefault();
+    }
     onAuthStateChanged(firebaseAuth,(currentUser)=> {
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
@@ -47,13 +42,14 @@ export default function Login(props) {
               <img src={lipscombLogoWhite} alt="lipscomblogowhite" />
            </div>
            <div className="login_email">
-              <h4 >Email</h4>
+              <h4>Email</h4>
            </div>
            <div className="login_container flex column">
            <input 
-                type="email" 
+                type='email'
                 placeholder='Email Address' 
                 name='email' 
+                required='required'
                 className="login_input"
                 value={formValues.email} 
                 onChange={(e)=>
@@ -67,7 +63,8 @@ export default function Login(props) {
               <h4>Password</h4>
            </div>
             <input 
-                type="password" 
+                type='password' 
+                required='required'
                 placeholder='Password' 
                 name='password' 
                 className="login_input"
