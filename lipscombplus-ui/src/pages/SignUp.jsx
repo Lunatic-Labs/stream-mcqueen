@@ -162,7 +162,6 @@ else
                                 required='required'
                                 className='signup_fullname' 
                             />
-
                             <h4>Email</h4>
                             <input 
                                 type='email'  
@@ -225,4 +224,3 @@ else
   </div>
 }
 }
-    
