@@ -1,3 +1,20 @@
+.error { 
+    font-size: 17px;
+    width:250px;
+    height: 45px;
+    position: relative;
+    border-radius:9px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #1E0E35;
+    color: white;
+    cursor: pointer;
+    top: 15px;
+    left: 70px; 
+    margin:auto;
+    vertical-align: middle;
+}
+
 .signup_container{
     position: relative;
     overflow-y: hidden;
@@ -82,8 +99,6 @@
     left: 490px;
     bottom:30px;
  }
-
-
 
  @media only screen and (max-width: 768px){
 

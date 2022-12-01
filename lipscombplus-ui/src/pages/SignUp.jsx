@@ -15,7 +15,7 @@ export default function SignUp(props) {
         email: '',
         password: '',
         confirmpassword: '',
-        errorMessage: 'Passwords do not match.',
+        errorMessage: 'Passwords do not match.'
     });
     const navigate = useNavigate()
     const handleSignIn = async () => {
@@ -127,7 +127,7 @@ if(windowSize.innerWidth<800)
                 </div>
                 </div>
                 <button type="submit" onClick={handleSignIn} className='signup_create_account'>Create Account</button>
-                {errorMessage && <div className="error"> {errorMessage} </div>}
+                {errorMessage && <div className="error"> {errorMessage}  </div>}
                 <div className='signup_back_to_login'>
                             <h5>Already have an account?</h5>
                 <button onClick={()=>navigate(props.signup? "/signup" : "/login")} className = "signup_login">
