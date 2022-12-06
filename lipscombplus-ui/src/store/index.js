@@ -66,6 +66,30 @@ export const fetchMovies = createAsyncThunk(
     //return getRawData(`${TMBD_BASE_URL}/discover/${type}?api_key=${API_KEY}&with_genres=${genre}`)
     }
 ) 
+
+export const fetchDataByGenre = createAsyncThunk(
+    "lipscombplus/trending", 
+    async({genre, type},thunkApi) => {
+    const {
+        lipscombplus:{ genres }
+    } = thunkApi.getState();
+    return getRawData(
+        `${TMBD_BASE_URL}/discover/${type}?api_key=${API_KEY}&with_genres=${genre}`,genres, true
+        )
+    }
+) 
+
+export const getUserLikedMedia = createAsyncThunk(
+    "lipscombplus/getLiked",
+     async (email) => {
+    const { 
+        data:{ movies }
+    } = await axios.get(
+        `http://localhost:5005/api/user/liked/${email}`)
+    return movies
+})
+
+
 const LipscombPlusSlice = createSlice({
     name: "LipscombPlus",
     initialState,
@@ -75,6 +99,9 @@ const LipscombPlusSlice = createSlice({
             state.genresLoaded = true;
         })
         builder.addCase(fetchMovies.fulfilled,(state,action) => {
+            state.movies = action.payload;
+        })
+        builder.addCase(getUserLikedMedia.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
     },
