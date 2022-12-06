@@ -94,28 +94,22 @@ if(windowSize.innerWidth<800)
                         }
                         />          
                     </div>
-                
-                    <div>
-                            <h4>Password</h4>
-                            <input 
-                                type="password" 
-                                name='password' 
-                                value={formValues.password} 
-                                onChange={(e)=>
-                                setFormValues({
-                                    ...formValues,
-                                    [e.target.name]: e.target.value,
-                                })
-                            }
-                            />
-
-                            <h4>Confirm Password</h4>
-                            <input
-                                type="password"
-                                className='signup_confirmpassword'
-                                
-                                                    
-                            />                
+            <div className='signup_divForm'>
+                    <h4>Password</h4>
+                    <input 
+                        type='password'
+                        name='password' 
+                        required='required' 
+                        value={formValues.password} 
+                        onChange={(e)=>
+                        setFormValues({
+                            ...formValues,
+                            [e.target.name]: e.target.value,
+                        })
+                    }
+                    />
+                    <div className='confirm_password'>
+                     <h4>Confirm Password</h4>
                     </div>
                      <input
                         type='password' 

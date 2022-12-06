@@ -14,10 +14,24 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 //import { removeFromLikedMedia } from '../store';
 
-
 export default function Card({movieData, isLiked = false}) {
   const [isHovered, setIsHovered] = useState(false);
+  const [email, setEmail] = useState(undefined);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  onAuthStateChanged(firebaseAuth,(currentUser)=> {
+    if(currentUser) setEmail(currentUser.email)
+    else navigate("/login"); //TODO: may want to add 2FA
+})
+
+const addToList = async () => {
+  try {
+    await axios.post("http://localhost:5005/api/user/add",{email,data:movieData})
+  } catch (err) {
+    console.log(err)
+  }
+}
   return (
         <div className='card_container' 
         onMouseEnter={() => setIsHovered(true)}
@@ -58,7 +72,6 @@ export default function Card({movieData, isLiked = false}) {
                           isLiked ? (
                             <BsCheck title="Remove From List" /> ) : ( 
                             <AiOutlinePlus title="Add to my list" onClick={addToList} />
-
                           )
                         }
                       </div>
