@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, getGenres } from '../store';
 import { firebaseAuth } from '../utils/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
-import styled from 'styled-components'
+import '../stylepages/chapels.css';
 import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import NotAvailable from '../components/NotAvailable';
+
 
 export default function Chapels() {
 const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +39,7 @@ const [isScrolled, setIsScrolled] = useState(false);
    // if(currentUser) navigate("/"); //TODO: may want to add 2FA
 })
   return (
-    <Container>
+    <div className='chapels_container'>
         <div className="navbar">
         <Navbar isScrolled={isScrolled}/>
         </div>
@@ -47,17 +48,6 @@ const [isScrolled, setIsScrolled] = useState(false);
                 movies.length ? <Slider movies={movies}/> : <NotAvailable/>
             }
         </div>
-    </Container>
+    </div>
   )
 }
-
-const Container = styled.div`
-.data {
-    margin-top: 8rem;
-    .not-avalable {
-        text-align: center;
-        color: white;
-        margin-top: 4rem;
-    }
-}
-`;

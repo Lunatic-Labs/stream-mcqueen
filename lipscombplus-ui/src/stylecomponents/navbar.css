@@ -1,0 +1,219 @@
+.scrolled {
+    background-color: black;
+}
+
+.navbar_flex {
+    position: sticky;
+    top: 0;
+    height: 60px;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    padding: 0 4rem;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+    display:inline-flex;
+}
+
+.navbar_left {
+    gap: 2rem;
+}
+
+.navbar_brand img {
+    height: 4rem;
+}
+
+.navbar_links {
+    list-style-type: none;
+    gap: 2rem;   
+}
+
+.navbar_links li a {   
+    color: white;
+    text-decoration: none;
+}
+
+
+.navbar_right {
+    gap: 1rem;
+    display:flex;   
+}
+
+.navbar_right button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;   
+}
+
+.navbar_right button:focus {
+    outline: none;
+}
+
+.navbar_right svg {
+    color: #F4AA00;
+    font-size: 1.2rem;    
+}
+
+.show-search
+{
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.6);
+}
+.show-search input{
+    width: 100%;
+    opacity: 1;
+    visibility: 0;
+    padding: 0.3 rem;
+}
+
+.navbar_search button {
+    background-color: transparent;   
+}
+
+.navbar_search svg {
+    color: white;   
+}
+
+.navbar_search input {
+    width: 0;
+    opacity: 1;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+    background-color: transparent;
+    border: none;
+    color: white;  
+}
+
+.navbar_search input:focus {
+    outline: none;
+}
+
+.show-search {
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.6);   
+}
+
+.show-search input {
+    width: 100%;
+    opacity: 0;
+    visibility: 0;
+    padding: 0.3 rem;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px){
+
+    .scrolled {
+        background-color: black;
+    }
+    .navbar_flex {
+        position: sticky;
+        top: 0;
+        height: 6.5 rem;
+        width: 100%;
+        justify-content: space-between;
+        position: fixed;
+        z-index: 2;
+        padding: 0 40px;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        display:inline-flex;
+    }
+    
+    .navbar_left {
+        gap: 2rem;
+    }
+    
+    .navbar_brand{
+       display: flex;
+       position: relative;
+       bottom:250px;
+       width: 100vw;
+    }
+
+    .lipscombPlusLogo{     
+        position: relative;
+    }
+    
+    .navbar_links {
+        list-style-type: none;
+        gap: 2rem;    
+    }
+    
+    .navbar_links li a {  
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar_right {
+        gap: 20px;
+        display:flex;   
+    }
+
+    .navbar_right button{
+        position: relative;
+        top: -10px;
+    }
+    
+    .navbar_right button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;    
+    }
+    
+    .navbar_right button:focus {
+        outline: none;
+    }
+    
+    .navbar_right svg {
+        color: #F4AA00;
+        font-size: 1.2rem;
+        margin-top: 20px;     
+    }
+    
+    .navbar_search {
+        display: flex;
+        gap: 0.4;    
+        justify-content: center;
+        padding: 0.2 rem;
+        padding-left: 0.5rem;    
+    }
+    
+    .navbar_search button {
+        background-color: transparent;  
+    }
+    
+    .navbar_search svg {
+        color: white;
+    }
+    
+    .navbar_search input {
+        width:0;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+        background-color: transparent;
+        border: none;
+        color: white;  
+    }
+    
+    .navbar_search input:focus {
+        outline: none;
+    }
+    
+    .show-search {
+        border: 1px solid white;
+        background-color: rgba(0,0,0,0.6);    
+    }
+
+    .show-search input {
+        width: 100%;
+        opacity: 1;
+        visibility: 0;
+        padding: 0.3rem; 
+    }
+}

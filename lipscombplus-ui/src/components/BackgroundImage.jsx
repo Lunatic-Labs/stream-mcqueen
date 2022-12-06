@@ -1,29 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import '../stylecomponents/backgroundimage.css';
 import background from '../assets/Dark_GradientDark_Gradient.jpg'
 
 export default function BackgroundImage() {
   return (
-    <Container>
+    <div className='backgroundimage_container'>
         <img src={background} alt='background' />
-    </Container>
+    </div>
     )
 }
- const Container = styled.div`
-    height: 100vh;
-    width: 100vw:
-    background-position: center;
-    img {
-        height: 100vh;
-        width: 100vw;
-        
-       
-            
-      
-      
-      
-          
-        
-    }
- `;
+
 

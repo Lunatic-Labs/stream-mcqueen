@@ -1,0 +1,268 @@
+.error { 
+    font-size: 17px;
+    width:250px;
+    height: 45px;
+    position: relative;
+    border-radius:9px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    top: 0px;
+    left: 475px; 
+    margin:auto;
+    vertical-align: middle;
+}
+
+.signup_container{
+    position: relative;
+    overflow-y: hidden;
+}
+
+.signup_content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 15vh 85vh;   
+}
+
+.signup_buttons{
+    display: grid;
+    grid-template-columns: auto 70px auto;
+    grid-template-rows: auto;
+}
+
+.signup_login{
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    width:180px;
+    left: 490px;
+    margin-top: 8px;
+    position: relative; 
+    top:20px;  
+}
+
+.signup_or{
+   text-align: center;
+}
+
+.signup_or_div{
+    text-align: center;
+    position: relative;
+    bottom:15px;
+ }
+
+
+.signup_lipscomblogo{
+    margin-top: 680px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.signup_content input {
+    padding: 1rem;
+    width: 560px;
+    height: 60px;
+    background-color: #F8F8FF;
+    border: none;
+    padding: 1.5rem;
+    font-size: 17px;
+    margin: 10px;
+    border-radius:9px;
+    margin-bottom:45px;        
+}
+
+.signup_content input:focus {
+    outline: none;
+}
+
+.signup_content h4{
+    margin-left:15px;
+}
+
+.signup_back_to_login{
+    display:grid;
+    text-align:center;
+    margin-bottom: 20px;
+}
+
+.signup_form {
+    gap: 10px;    
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+}
+  
+.signup_body {
+    gap: 1rem;
+}
+
+.signup_create_account{
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    width:180px;
+    position: relative;
+    left: 390px;
+    bottom:11px;
+ }
+
+ #text1{
+    position: relative;
+    left:300px;
+    top: 20px
+    
+ }
+
+ #google_button{
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    margin:3px;
+    background-color: white;
+    border-style: hidden;
+    cursor: pointer;
+    color: rgb(12, 6, 6);
+    border-radius: 8px;
+    font-size: 15px;
+    width:180px;
+    position: relative;
+    left: 20px;
+    bottom: 30px;
+    display:inline-block;
+    vertical-align: middle;
+    transition: background-color .3s, box-shadow .3s;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    color: #757575;
+    font-size: 14px;
+    font-weight: 500;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 12px 11px;
+
+ }
+
+ @media only screen and (max-width: 768px){
+
+    .signup_container{
+        position: relative;  
+    }
+    
+    .signup_content {
+        position: absolute;
+        display: inline;
+    }
+    
+    .signup_login{
+        font-weight: bold;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 15px;
+        width:180px;
+        left: 65px; 
+        bottom: 110px;
+        margin-top: 0px;  
+        top:0;     
+    }
+    
+    .signup_lipscomblogo{
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .signup_content input {
+        width: 300px;
+        height: 50px;
+        background-color: #F8F8FF;
+        border: none;
+        padding: 1.5rem;
+        font-size: 17px;
+        margin: 5px;
+        border-radius:9px;
+        margin-bottom:20px;       
+    }
+    
+    .signup_content input:focus {
+        outline: none;
+    }
+    
+    .signup_content h4{
+        margin-left:15px;
+    }
+    
+    .signup_back_to_login{
+        display: inline;
+        text-align:center;
+        margin-bottom: 60px;
+    }
+    
+    .signup_form {
+        gap: 10px;    
+        display: inline;
+        position: relative;
+        margin-left: 50px; 
+    }
+   
+    .signup_body {
+        gap: 10px;
+        position: relative; 
+    }
+
+    .signup_create_account{
+        font-weight: bold;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: white;
+        font-size: 19px;
+        width:180px;
+        position: relative;
+        left: 70px;
+        bottom: 4px;
+     }
+
+     .signup_divForm{
+        margin-left: 7px;
+     }
+
+     #google_button{
+        font-weight: bold;
+        padding-top: 15px;
+        padding-bottom: 18px;
+        margin:3px;
+        background-color: white;
+        border-style: hidden;
+        cursor: pointer;
+        color: rgb(12, 6, 6);
+        border-radius: 8px;
+        font-size: 15px;
+        width:180px;
+        position: relative;
+        left: 70px;
+        bottom: 5px;
+        display:inline-block;
+        vertical-align: middle;
+        transition: background-color .3s, box-shadow .3s;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+        color: #757575;
+        font-size: 14px;
+        font-weight: 500;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: 12px 11px;
+      }
+ }

@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import "../stylepages/lipscombplus.css";
 import Navbar from '../components/Navbar';
+import Logo from '../assets/lipscombLogoWhiteResizedMobile.png';
 import backgroundImage from '../assets/backgroundImage.jpeg';
 import Header from '../components/Header';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
@@ -8,14 +10,32 @@ import { FaPlay } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovies, getGenres } from '../store';
-
 import Slider from '../components/Slider';
+import Sidebar from '../components/Sidebar';
 
 export default function LipscombPlus() {
  
  const [isScrolled, setIsScrolled] = useState(false);
+ ///////////////////////////////////////////////////////////////////////////////////// This code checks for mobile device
+ const [windowSize, setWindowSize] = useState(getWindowSize());
 
+    useEffect(() => {
+      function handleWindowResize() {
+        setWindowSize(getWindowSize());
+      }
+  
+      window.addEventListener('resize', handleWindowResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
 
+    function getWindowSize() {
+        const {innerWidth, innerHeight} = window;
+        return {innerWidth, innerHeight};
+      }
+  ///////////////////////////////////////////////////////////////////////////////
   //remove lines 16-28 when getting rid of dummy data
   const genresLoaded = useSelector((state) => state.lipscombplus.genresLoaded)
   const movies = useSelector((state) => state.lipscombplus.movies)
@@ -34,85 +54,75 @@ export default function LipscombPlus() {
    setIsScrolled(window.pageYOffset===0?false:true);
    return () => (window.onscroll = null)
  }
-
- return (
-   <Container>
+if(windowSize.innerWidth<800)
+{
+   return (
+   <div className='container1'>
      <Navbar isScrolled={isScrolled}/>
      < div className="hero">
        <img
         src={backgroundImage}
         alt="background"
         className="background-image"
-       />
+       />                
 {/* ?????? */}
-       <div className="container">
+       <div className="container2">
          <div className="title text">
-          <Header></Header>
-         </div>
+          <Header></Header>         
+         </div>      
 {/* ?????? */}
+                <div className="navbar_brand flex a-center j-center">
+                    <a href='/' className='lipscombPlusLogo'>
+                    <img src={Logo} alt="logo"  />
+                    </a>
+                </div>      
          <div className="buttons flex">
            <button className="flex j-center a-center" onClick={()=>navigate('/player')}>
              <FaPlay/> Play
-           </button>
-           <button className="flex j-center a-center">
-             <AiOutlineInfoCircle/> More Info
-           </button>
+           </button>  
          </div>
        </div>
      </div>
      <Slider movies={movies}
      />
-   </Container>
+   </div>
  )
 }
- 
-const  Container = styled.div`
-background-color: black;
-.hero {
- position: relative;
- .background-image {
-   filter: brightness(60%);
-   object-fit: cover;
- }
- img {
-   height: 75vh;
-   width: 100vw;
- }
- .container {
-   position: absolute;
-   bottom: 5rem;
-   .logo {
-     img {
-       width: 30%;
-       height: 30%;
-       margin-left: 5rem;
-     }
-   }
-   .buttons {
-     margin 5rem;
-     gap: 2rem;
-     button {
-       font-size: 1.4rem;
-       gap: 1rem;
-       border-radius: 0.2rem;
-       padding: 0.5rem;
-       padding-left: 2rem;
-       padding-right: 2.4rem;
-       border: none;
-       cursor: pointer;
-       transition: 0.3s ease-in-out;
-       &:hover {
-         opacity: 0.8;
-       }
-       &:nth-of-type(2) {
-         background-color: rgba(109, 109, 110, 0.7);
-         color: #F3AA02;
-         svg {
-           font-size: 1.8rem;
-         }
-       }
-     }
-   }
- }
+else{
+
+  return (
+    <>
+     <div className='container1'>
+       <Navbar isScrolled={isScrolled}/>
+       < div className="hero">
+         <img
+          src={backgroundImage}
+          alt="background"
+          className="background-image"
+         />
+         
+  {/* ?????? */}
+         <div className="container2">
+           <div className="title text">
+            <Header></Header>
+           </div>
+  {/* ?????? */}
+           <div className="buttons flex">
+             <button className="flex j-center a-center" onClick={()=>navigate('/player')}>
+               <FaPlay/> Play
+             </button>
+             <button className="flex j-center a-center">
+               <AiOutlineInfoCircle/> More Info
+             </button>
+           </div>
+         </div>
+       </div>
+       <Slider movies={movies}
+       />
+     </div>
+     </>
+  
+   )
+
 }
-`;
+}
