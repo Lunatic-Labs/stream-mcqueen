@@ -69,7 +69,7 @@ const addToList = async () => {
                         <RiThumbUpFill title="Like"/>
                         <RiThumbDownFill title="Dislike"/>
                         {
-                          isLiked ? (
+                          //isLiked ? (
                             <BsCheck title="Remove From List" /> ) : ( 
                             <AiOutlinePlus title="Add to my list" onClick={addToList} />
                           )

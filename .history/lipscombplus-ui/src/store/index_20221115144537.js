@@ -1,3 +1,4 @@
+import { async } from "@firebase/util"
 import {
     configureStore,
     createAsyncThunk,
@@ -78,7 +79,7 @@ export const fetchDataByGenre = createAsyncThunk(
     }
 ) 
 
-export const getUserLikedMedia = createAsyncThunk(
+export const getUserLikedMovies = createAsyncThunk(
     "lipscombplus/getLiked",
      async (email) => {
     const { 
@@ -88,6 +89,18 @@ export const getUserLikedMedia = createAsyncThunk(
     return movies
 })
 
+export const removeFromLikedMedia = createAsyncThunk(
+    "lipscombplus/deleteLiked",
+     async ({email, mediaId}) => {
+    const { 
+        data:{ movies },
+    } = await axios.put(
+        "http://localhost:5005/api/user/delete", { 
+            email, 
+            mediaId,
+        })
+    return movies
+})
 
 const LipscombPlusSlice = createSlice({
     name: "LipscombPlus",
@@ -100,7 +113,10 @@ const LipscombPlusSlice = createSlice({
         builder.addCase(fetchMovies.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
-        builder.addCase(getUserLikedMedia.fulfilled,(state,action) => {
+        builder.addCase(getUserLikedMovies.fulfilled,(state,action) => {
+            state.movies = action.payload;
+        })
+        builder.addCase(removeFromLikedMedia.fulfilled,(state,action) => {
             state.movies = action.payload;
         })
     },

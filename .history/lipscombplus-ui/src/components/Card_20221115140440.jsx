@@ -12,7 +12,7 @@ import { firebaseAuth } from '../utils/firebase-config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-//import { removeFromLikedMedia } from '../store';
+import { removeFromLikedMedia } from '../store';
 
 export default function Card({movieData, isLiked = false}) {
   const [isHovered, setIsHovered] = useState(false);
@@ -70,7 +70,7 @@ const addToList = async () => {
                         <RiThumbDownFill title="Dislike"/>
                         {
                           isLiked ? (
-                            <BsCheck title="Remove From List" /> ) : ( 
+                            <BsCheck title="Remove From List" onClick={()=>dispatch(removeFromLikedMovies({mediaId:movieData.id, email}))} /> ) : ( 
                             <AiOutlinePlus title="Add to my list" onClick={addToList} />
                           )
                         }

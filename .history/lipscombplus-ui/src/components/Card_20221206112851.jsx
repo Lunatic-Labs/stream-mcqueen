@@ -70,7 +70,7 @@ const addToList = async () => {
                         <RiThumbDownFill title="Dislike"/>
                         {
                           isLiked ? (
-                            <BsCheck title="Remove From List" /> ) : ( 
+                            //<BsCheck title="Remove From List" onClick={()=>dispatch(removeFromLikedMedia({mediaId:movieData.id, email}))} /> ) : ( 
                             <AiOutlinePlus title="Add to my list" onClick={addToList} />
                           )
                         }
