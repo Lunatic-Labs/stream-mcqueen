@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { signInWithGoogle } from "../utils/firebase-config";
+
 
 export default function Login(props) {
     const [formValues, setFormValues] = useState({
@@ -32,7 +34,7 @@ export default function Login(props) {
 
   }
 
-    onAuthStateChanged(firebaseAuth,(currentUser)=> {
+    onAuthStateChanged(firebaseAuth,(currentUser)=> {console.log(currentUser)
         if(currentUser) navigate("/"); //TODO: may want to add 2FA
     })
 /////////////////////////////////////////////////////////////////////////////////  This code checks for mobile device
@@ -106,6 +108,9 @@ export default function Login(props) {
                      <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
                        {props.login ? "Log In" : "Create an account"}
                       </button>
+                      <p  className="or">or</p>
+                      
+                      <button className='google_button' id='google_button' onClick={signInWithGoogle}><b id='text'>Log in with Google</b></button>
                  </div>
               </div>
           </div>
@@ -160,10 +165,12 @@ export default function Login(props) {
                       })
                     }
                    />
-                     <button type="submit" className = "LogIn">Log In</button>
-                     <button onClick={()=>navigate(props.login? "/login" : "/signup")} className = "signUp">
+                     <button className="login_container_button" id="login" type="submit">Log In</button>
+                     <button onClick={()=>navigate(props.login? "/login" : "/signup")} className="login_container_button" id="signup">
                        {props.login ? "Log In" : "Create an account"}
                       </button>
+                      <p  className="or">or</p> 
+                      <button className='google_button' onClick={signInWithGoogle}><b id='text'>Log in with Google</b></button>   
                  </div>
               </div>
           </div>
