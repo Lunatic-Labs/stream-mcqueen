@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import { firebaseAuth } from '../utils/firebase-config';
 import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { signInWithGoogle } from "../utils/firebase-config";
 
 export default function SignUp(props) {
     /*const [showPassword, setShowPassword] = useState(false);*/
@@ -126,14 +125,15 @@ if(windowSize.innerWidth<800)
                     }
                    />                             
                 </div>
-               <button type="submit" onClick={handleSignIn} className="signup_create_account">Create Account</button> 
-               <p  className="or">or</p> 
-                <button className='google_button' id='google_button' onClick={signInWithGoogle}><b id='text'>Log in with Google</b></button>
+                </div>
+                <button type="submit" onClick={handleSignIn} className='signup_create_account'>Create Account</button>
+                {errorMessage && <div className="error"> {errorMessage}  </div>}
                 <div className='signup_back_to_login'>
-                        <h5>Already have an account?</h5>
-                        <button onClick={()=>navigate(props.signup? "/signup" : "/login")} className = "signup_login">
+                            <h5>Already have an account?</h5>
+                <button onClick={()=>navigate(props.signup? "/signup" : "/login")} className = "signup_login">
                             {props.login ? "Log In" : "Log In"}
                         </button>
+
                 </div>
                 
              </form>
@@ -208,25 +208,16 @@ else
                         />              
                     </div>
                 </div>
-
-                <div className='signup_buttons'>
                <button type="submit" onClick={handleSignIn} className="signup_create_account">Create Account</button> 
                {errorMessage && <div className="error"> {errorMessage} </div>}
                 <div className='signup_back_to_login'>
-                        <button type="submit" onClick={handleSignIn} className="signup_create_account">Create Account</button> 
-                        <h5 id='text1'>Already have an account?</h5>
-                        <button onClick={()=>navigate(props.signup? "/signup" : "/login")} className = "signup_login">
+                            <h5>Already have an account?</h5>
+                <button onClick={()=>navigate(props.signup? "/signup" : "/login")} className = "signup_login">
                             {props.login ? "Log In" : "Log In"}
                         </button>
-                        
-                    </div>
-                    <div className="signup_or_div">
-                    <p  className="signup_or">or</p>
-                    </div>
-                    <div>
-                        <button className='google_button' id='google_button' onClick={signInWithGoogle}><b id='text'>Sign Up with Google</b></button>
-                    </div>
+
                 </div>
+                
              </form>
             </div>
     </div>

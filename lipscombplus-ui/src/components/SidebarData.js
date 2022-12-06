@@ -45,5 +45,22 @@ export const SidebarData = [
     icon: <FaIcons.FaEnvelopeOpenText />,
     iconClosed: <RiIcons.RiArrowDownSFill />,
     iconOpened: <RiIcons.RiArrowUpSFill />,
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+    title: 'Support',
+    path: '/support',
+    icon: <IoIcons.IoMdHelpCircle />
+  },
+  {
+    title: 'Sign Out',
+    path: '/login',
+    icon: <IoIcons.IoMdHelpCircle />
   }
+  
 ];
