@@ -1,0 +1,14 @@
+.sidebar_nav{
+background: transparent;
+height: 80px;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.sidebar_navicon{
+font-size: 2rem;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

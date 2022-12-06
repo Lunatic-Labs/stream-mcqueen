@@ -16,11 +16,11 @@ export default React.memo ( function CardSlider({data, title}) {
   const handleDirection = (direction) => {
     let distance = listRef.current.getBoundingClientRect().x -70;
     if(direction === "left" && sliderPosition > 0) {
-      listRef.current.style.transform = `translateX(${415 + distance}px)`;
+      listRef.current.style.transform = `translateX(${410 + distance}px)`;
       setSliderPosition(sliderPosition - 1);
     }
     if(direction === "right" && sliderPosition < 4) {
-      listRef.current.style.transform = `translateX(${-275 + distance}px)`;
+      listRef.current.style.transform = `translateX(${-270 + distance}px)`;
       setSliderPosition(sliderPosition + 1);
     }
   };
@@ -31,13 +31,13 @@ export default React.memo ( function CardSlider({data, title}) {
     >
       <h1>{title}</h1>
       <div className="wrapper">
-        <div className={` slider-action left ${
+        <div className={`slider-action left ${
           !showControls ? "none" : ""
           } flex j-center a-center`} 
         >
           <AiOutlineLeft onClick={()=> handleDirection('left')}/>
         </div>
-        <div className='flex slider item' ref={listRef}>
+        <div className='flex slider' ref={listRef}>
         {data.map((movie,index) => {
             return <Card movieData={movie} index={index} key={movie.id}/>
          })}

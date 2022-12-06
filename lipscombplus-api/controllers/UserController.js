@@ -34,27 +34,3 @@ module.exports.getLikedMedia = async(req,res) => {
     }
 }
 
-module.exports.removeFromLikedMedia = async(req,res) => {
-    try {
-        const { email, mediaId } = req.body;
-        const user = await User.findOne({ email });
-        if(user) {
-            const { likedMedia } = user;
-            const mediaIndex = likedMedia.findIndex(({id}) => id === mediaId)
-            if(!mediaIndex) res.status(400).send({ msg: "Video not Found"})
-            likedMedia.splice(mediaIndex, 1)
-            
-            await User.findByIdAndUpdate(
-                user._id,
-                {
-                    likedMedia: [...user.likedMedia, data],
-                },
-                { new: true }
-            );
-            return res.json({ msg: "Media Deleted", likedMedia: [data] })
-        } else return res.json({ msg: "User with given email not found." });
-    } catch(err) {
-        console.log(err);
-        return res.json({msg : "Error fetching media"})
-    }
-}

@@ -1,15 +1,13 @@
 .player {
     width: 100vw;
-    height: 100vh;
-    
-   
+    height: 100vh;   
  }
 
  .back {
     position: absolute;
     padding: 2rem;
     z-index: 1;
-   }
+}
 
 .back svg {
     font-size: 3rem;

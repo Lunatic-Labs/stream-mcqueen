@@ -6,6 +6,7 @@ import {
 import axios from "axios"
 import { API_KEY, TMBD_BASE_URL } from "../utils/constants"
 
+
 const initialState = {
     movies: [],
     genresLoaded: false,
